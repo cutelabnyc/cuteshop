@@ -18,9 +18,31 @@ export const GlobalStyle = props => (
         margin: 0;
       }
       html {
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;
+        min-height: 100%;
+        height: 100%;
+        color: purple;
+        font-size: 16px;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
+      }
+      @font-face {
+        font-family: "PressStart2P";
+        src: url("/Press_Start_2P/PressStart2P-Regular.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
+      }
+      @font-face {
+        font-family: "Roboto";
+        src: url("/Roboto/Roboto-Regular.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
+      }
+      @font-face {
+        font-family: "Roboto-Thin";
+        src: url("/Roboto/Roboto-Thin.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
       }
     `}
   />

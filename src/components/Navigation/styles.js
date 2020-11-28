@@ -3,25 +3,37 @@ import { Link } from 'gatsby'
 
 import { breakpoints } from '../../utils/styles'
 
-export const Wrapper = styled.div`
-  background: rebeccapurple;
+export const HeaderWrapper = styled.div`
+  background: white;
+  border-bottom: 3px solid purple;
+`
+
+export const ModuleWrapper = styled.div`
+  background: white;
   margin-bottom: 1.45rem;
+  border-bottom: 3px solid purple;
+`
+
+export const HeaderTitle = styled.div`
+  font-family: 'PressStart2P';
+  color: purple;
 `
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 1.45rem;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 848px;
+  padding-top: 43px;
+  padding-bottom: 18px;
 `
 
 export const MenuLink = styled(Link)`
-  color: white;
+  color: purple;
   text-decoration: none;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 24px;
+  font-family: "Roboto";
 
   @media (max-width: ${breakpoints.s}px) {
     font-size: 1.4rem;
