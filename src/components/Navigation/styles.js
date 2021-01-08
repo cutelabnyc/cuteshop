@@ -8,7 +8,15 @@ export const HeaderWrapper = styled.div`
   border-bottom: 3px solid purple;
 `
 
-export const ModuleWrapper = styled.div`
+export const CollectionWrapper = styled.div`
+  background: white;
+  border-bottom: 3px solid purple;
+  a {
+    font-family: "Roboto-Thin"
+  }
+`
+
+export const ProductWrapper = styled.div`
   background: white;
   margin-bottom: 1.45rem;
   border-bottom: 3px solid purple;
@@ -25,6 +33,7 @@ export const Container = styled.div`
   align-items: baseline;
   margin: 0 auto;
   max-width: 848px;
+  padding: 20px;
   padding-top: 43px;
   padding-bottom: 18px;
 `
@@ -34,7 +43,6 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   font-size: 24px;
   font-family: "Roboto";
-
   @media (max-width: ${breakpoints.s}px) {
     font-size: 1.4rem;
   }
