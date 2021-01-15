@@ -11,7 +11,7 @@ import {
     GridRight,
 } from '~/utils/styles'
 import { MenuLink } from '../components/Navigation/styles'
-import { ProductTitle, ProductDescription, ProductWrapper } from '../templates/ProductPage/styles'
+import { ProductTitle, ProductDescription, ProductWrapper, Wrapper } from '../templates/ProductPage/styles'
 
 const IndexPage = ({ data }) => {
     const query = useStaticQuery(
@@ -96,26 +96,28 @@ const IndexPage = ({ data }) => {
                     })}
                 </Container>
             </ProductWrapper>
-            <Container>
-                <TwoColumnGrid>
-                    <GridLeft>
-                        {product.images.map(image => (
-                            <Img
-                                fluid={image.localFile.childImageSharp.fluid}
-                                key={image.id}
-                                alt={product.title}
+            <Wrapper>
+                <Container>
+                    <TwoColumnGrid>
+                        <GridLeft>
+                            {product.images.map(image => (
+                                <Img
+                                    fluid={image.localFile.childImageSharp.fluid}
+                                    key={image.id}
+                                    alt={product.title}
+                                />
+                            ))}
+                        </GridLeft>
+                        <GridRight>
+                            <ProductTitle>{product.title}</ProductTitle>
+                            <ProductDescription
+                                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
-                        ))}
-                    </GridLeft>
-                    <GridRight>
-                        <ProductTitle>{product.title}</ProductTitle>
-                        <ProductDescription
-                            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                        />
-                        <ProductForm product={product} />
-                    </GridRight>
-                </TwoColumnGrid>
-            </Container>
+                            <ProductForm product={product} />
+                        </GridRight>
+                    </TwoColumnGrid>
+                </Container>
+            </Wrapper>
         </>
     )
 }

@@ -12,7 +12,7 @@ export const CollectionWrapper = styled.div`
   background: white;
   border-bottom: 3px solid purple;
   a {
-    font-family: "Roboto-Thin"
+    font-family: "Roboto"
   }
 `
 
@@ -36,7 +36,14 @@ export const MenuLink = styled(Link)`
   color: purple;
   text-decoration: none;
   font-size: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto-Thin";
+  padding-left: 8px;
+  padding-right: 8px;
+  &:hover {
+      box-shadow: inset -3px 0px 0px 0px purple, inset 3px 0px 0px 0px purple ;
+      transition: 1s;
+      animation-timing-function: ease-out;
+  }
   @media (max-width: ${breakpoints.s}px) {
     font-size: 1.4rem;
   }

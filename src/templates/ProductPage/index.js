@@ -15,6 +15,7 @@ import {
     ProductTitle,
     ProductDescription,
     ProductWrapper,
+    Wrapper
 } from './styles'
 
 import { MenuLink } from '../../components/Navigation/styles'
@@ -41,26 +42,28 @@ const ProductPage = ({ data }) => {
                     })}
                 </Container>
             </ProductWrapper>
-            <Container>
-                <TwoColumnGrid>
-                    <GridLeft>
-                        {product.images.map(image => (
-                            <Img
-                                fluid={image.localFile.childImageSharp.fluid}
-                                key={image.id}
-                                alt={product.title}
+            <Wrapper>
+                <Container>
+                    <TwoColumnGrid>
+                        <GridLeft>
+                            {product.images.map(image => (
+                                <Img
+                                    fluid={image.localFile.childImageSharp.fluid}
+                                    key={image.id}
+                                    alt={product.title}
+                                />
+                            ))}
+                        </GridLeft>
+                        <GridRight>
+                            <ProductTitle>{product.title}</ProductTitle>
+                            <ProductDescription
+                                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
-                        ))}
-                    </GridLeft>
-                    <GridRight>
-                        <ProductTitle>{product.title}</ProductTitle>
-                        <ProductDescription
-                            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                        />
-                        <ProductForm product={product} />
-                    </GridRight>
-                </TwoColumnGrid>
-            </Container>
+                            <ProductForm product={product} />
+                        </GridRight>
+                    </TwoColumnGrid>
+                </Container>
+            </Wrapper>
         </>
     )
 }
