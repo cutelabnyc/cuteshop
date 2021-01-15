@@ -10,7 +10,6 @@ import {
     MenuLink,
     HeaderTitle,
     HeaderWrapper,
-    ProductWrapper,
     CollectionWrapper
 } from './styles'
 
@@ -32,6 +31,10 @@ const Navigation = ({ siteTitle }) => {
                             node {
                                 title
                                 handle
+                                products {
+                                    title
+                                    handle
+                                }
                             }
                         }
                     }
@@ -46,7 +49,7 @@ const Navigation = ({ siteTitle }) => {
                     {allShopifyCollection.edges.map((collection, key) => {
                         return (
                             <MenuLink
-                                to={collection.node.handle}
+                                to={`${collection.node.handle}/${collection.node.products[0].handle}`}
                                 key={key}
                             >
                                 {collection.node.title}
@@ -55,20 +58,6 @@ const Navigation = ({ siteTitle }) => {
                     })}
                 </Container>
             </CollectionWrapper>
-            <ProductWrapper>
-                <Container style={{ padding: "8px" }}>
-                    {allShopifyCollection.edges.map((product, key) => {
-                        return (
-                            <MenuLink
-                                to={product.node.handle}
-                                key={key}
-                            >
-                                {product.node.title}
-                            </MenuLink>
-                        )
-                    })}
-                </Container>
-            </ProductWrapper>
         </>
     )
 }

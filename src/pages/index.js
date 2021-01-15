@@ -10,15 +10,21 @@ import {
     GridLeft,
     GridRight,
 } from '~/utils/styles'
-import { ProductTitle, ProductDescription } from '../templates/ProductPage/styles'
+import { MenuLink } from '../components/Navigation/styles'
+import { ProductTitle, ProductDescription, ProductWrapper } from '../templates/ProductPage/styles'
 
 const IndexPage = ({ data }) => {
     const query = useStaticQuery(
         graphql`
             query {
-                allShopifyProduct(sort: { fields: [id], order: DESC }) {
+                allShopifyCollection(sort: { fields: [id], order: DESC }) {
                     edges {
                         node {
+                            # Pull in collection handle
+                            handle
+
+                            # Pull in Product stuff
+                            products{
                                 id
                                 title
                                 handle
@@ -63,6 +69,7 @@ const IndexPage = ({ data }) => {
                                     }
                                     }
                                 }
+                            }
                         }
                     }
                 }
@@ -70,10 +77,25 @@ const IndexPage = ({ data }) => {
         `
     )
 
-    const product = data.allShopifyProduct.edges[0].node
+    const product = data.allShopifyCollection.edges[0].node.products[0]
+    const collection = data.allShopifyCollection.edges[0].node
     return (
         <>
             <SEO title={product.title} description={product.description} />
+            <ProductWrapper>
+                <Container style={{ padding: "8px" }}>
+                    {collection.products.map((product, key) => {
+                        return (
+                            <MenuLink
+                                to={`${collection.handle}/${product.handle}`}
+                                key={key}
+                            >
+                                {product.title}
+                            </MenuLink>
+                        )
+                    })}
+                </Container>
+            </ProductWrapper>
             <Container>
                 <TwoColumnGrid>
                     <GridLeft>

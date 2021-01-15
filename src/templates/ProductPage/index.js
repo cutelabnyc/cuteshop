@@ -4,45 +4,69 @@ import { graphql } from 'gatsby'
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
 import {
-  Img,
-  Container,
-  TwoColumnGrid,
-  GridLeft,
-  GridRight,
+    Img,
+    Container,
+    TwoColumnGrid,
+    GridLeft,
+    GridRight,
 } from '~/utils/styles'
-import { ProductTitle, ProductDescription } from './styles'
+
+import {
+    ProductTitle,
+    ProductDescription,
+    ProductWrapper,
+} from './styles'
+
+import { MenuLink } from '../../components/Navigation/styles'
 
 const ProductPage = ({ data }) => {
-  const product = data.shopifyProduct
-  return (
-    <>
-      <SEO title={product.title} description={product.description} />
-      <Container>
-        <TwoColumnGrid>
-          <GridLeft>
-            {product.images.map(image => (
-              <Img
-                fluid={image.localFile.childImageSharp.fluid}
-                key={image.id}
-                alt={product.title}
-              />
-            ))}
-          </GridLeft>
-          <GridRight>
-            <ProductTitle>{product.title}</ProductTitle>
-            <ProductDescription
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
-            <ProductForm product={product} />
-          </GridRight>
-        </TwoColumnGrid>
-      </Container>
-    </>
-  )
+
+    const product = data.shopifyProduct
+    const collection = data.shopifyCollection
+
+    return (
+        <>
+            <SEO title={product.title} description={product.description} />
+            <ProductWrapper>
+                <Container style={{ padding: "8px" }}>
+                    {collection.products.map((product, key) => {
+                        return (
+                            <MenuLink
+                                to={`${collection.handle}/${product.handle}`}
+                                key={key}
+                            >
+                                {product.title}
+                            </MenuLink>
+                        )
+                    })}
+                </Container>
+            </ProductWrapper>
+            <Container>
+                <TwoColumnGrid>
+                    <GridLeft>
+                        {product.images.map(image => (
+                            <Img
+                                fluid={image.localFile.childImageSharp.fluid}
+                                key={image.id}
+                                alt={product.title}
+                            />
+                        ))}
+                    </GridLeft>
+                    <GridRight>
+                        <ProductTitle>{product.title}</ProductTitle>
+                        <ProductDescription
+                            dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                        />
+                        <ProductForm product={product} />
+                    </GridRight>
+                </TwoColumnGrid>
+            </Container>
+        </>
+    )
 }
 
 export const query = graphql`
-  query($handle: String!) {
+  query($handle: String!, $collectionHandle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
       id
       title
@@ -88,6 +112,13 @@ export const query = graphql`
           }
         }
       }
+    }
+    shopifyCollection(handle: { eq: $collectionHandle }){
+        handle
+        products {
+            title
+            handle
+        }
     }
   }
 `

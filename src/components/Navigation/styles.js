@@ -16,12 +16,6 @@ export const CollectionWrapper = styled.div`
   }
 `
 
-export const ProductWrapper = styled.div`
-  background: white;
-  margin-bottom: 1.45rem;
-  border-bottom: 3px solid purple;
-`
-
 export const HeaderTitle = styled.div`
   font-family: 'PressStart2P';
   color: purple;

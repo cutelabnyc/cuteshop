@@ -10,6 +10,12 @@ export const ProductTitle = styled.h1`
   line-height: 1.4;
 `
 
+export const ProductWrapper = styled.div`
+  background: white;
+  margin-bottom: 1.45rem;
+  border-bottom: 3px solid purple;
+`
+
 export const ProductDescription = styled.div`
   margin-top: 40px;
   font-family: 'Roboto', 'Roboto', sans-serif;

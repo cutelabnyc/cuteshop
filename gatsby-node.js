@@ -1,28 +1,38 @@
 const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  return graphql(`
+    const { createPage } = actions
+    return graphql(`
     {
-      allShopifyProduct {
-        edges {
-          node {
-            handle
+      allShopifyCollection {
+          edges {
+              node {
+                title
+                handle
+                products {
+                  title
+                  handle
+                }
+              }
           }
-        }
       }
     }
   `).then(result => {
-    result.data.allShopifyProduct.edges.forEach(({ node }) => {
-      createPage({
-        path: `/product/${node.handle}/`,
-        component: path.resolve(`./src/templates/ProductPage/index.js`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          handle: node.handle,
-        },
-      })
+        result.data.allShopifyCollection.edges.forEach(({ node }) => {
+            let collectionHandle = node.handle
+
+            node.products.forEach((product) => {
+                createPage({
+                    path: `/${collectionHandle}/${product.handle}/`,
+                    component: path.resolve(`./src/templates/ProductPage/index.js`),
+                    context: {
+                        // Data passed to context is available
+                        // in page queries as GraphQL variables.
+                        handle: product.handle,
+                        collectionHandle: collectionHandle
+                    },
+                })
+            })
+        })
     })
-  })
 }
