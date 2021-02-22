@@ -26,7 +26,7 @@ export const MenuLink = styled(Link)`
   color: purple;
   text-decoration: none;
   font-size: 24px;
-  font-family: "Roboto";
+  font-family: "Alegreya-Sans-Thin";
   padding-left: 24px;
   padding-right: 24px;
   @media (max-width: ${breakpoints.s}px) {
