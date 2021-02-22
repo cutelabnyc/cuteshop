@@ -13,7 +13,7 @@ export const ProductTitle = styled.h1`
 export const ProductWrapper = styled.div`
   background: white;
   margin-bottom: 1.45rem;
-  border-bottom: 3px solid purple;
+  border-bottom: 1px dashed purple;
 `
 
 export const ProductDescription = styled.div`
