@@ -9,8 +9,9 @@ import {
     Container,
     MenuLink,
     HeaderTitle,
+    HeaderLink,
     HeaderWrapper,
-    CollectionWrapper
+    CollectionWrapper,
 } from './styles'
 
 const useQuantity = () => {
@@ -68,11 +69,11 @@ const Header = ({ siteTitle }) => {
     return (
         <HeaderWrapper>
             <Container>
-                <MenuLink to="/"><HeaderTitle>{siteTitle}</HeaderTitle></MenuLink>
-                <MenuLink to="/cart" style={{ fontFamily: "Roboto-Thin", fontSize: "28px" }}>
+                <HeaderLink to="/"><HeaderTitle>{siteTitle}</HeaderTitle></HeaderLink>
+                <HeaderLink to="/cart" style={{ fontFamily: "Roboto-Thin", fontSize: "28px" }}>
                     {hasItems && <CartCounter>{quantity}</CartCounter>}
                         Cart 🛒
-                    </MenuLink>
+                    </HeaderLink>
             </Container>
         </HeaderWrapper>
     )

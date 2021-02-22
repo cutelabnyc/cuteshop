@@ -5,12 +5,12 @@ import { breakpoints } from '../../utils/styles'
 
 export const HeaderWrapper = styled.div`
   background: white;
-  border-bottom: 3px solid purple;
+  border-bottom: 1px solid purple;
 `
 
 export const CollectionWrapper = styled.div`
   background: white;
-  border-bottom: 3px solid purple;
+  border-bottom: 1px dashed purple;
   a {
     font-family: "Roboto"
   }
@@ -30,6 +30,18 @@ export const Container = styled.div`
   padding: 20px;
   padding-top: 43px;
   padding-bottom: 18px;
+`
+
+export const HeaderLink = styled(Link)`
+  color: purple;
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Roboto-Thin";
+  padding-left: 8px;
+  padding-right: 8px;
+  @media (max-width: ${breakpoints.s}px) {
+    font-size: 1.4rem;
+  }
 `
 
 export const MenuLink = styled(Link)`
