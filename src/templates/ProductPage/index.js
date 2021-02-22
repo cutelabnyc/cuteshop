@@ -55,7 +55,7 @@ const ProductPage = ({ data }) => {
                             ))}
                         </GridLeft>
                         <GridRight>
-                            <ProductTitle>{product.title.toLowerCase()}</ProductTitle>
+                            <ProductTitle>{product.title}</ProductTitle>
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
