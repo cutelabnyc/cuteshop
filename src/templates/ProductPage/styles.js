@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const ProductTitle = styled.h1`
-  font-size: 2.25rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
   word-wrap: break-word;
   font-family: 'Alegreya-Sans-Thin', sans-serif;
@@ -17,9 +17,10 @@ export const ProductWrapper = styled.div`
 `
 
 export const ProductDescription = styled.div`
-  margin-top: 40px;
   font-family: 'Alegreya-Sans-Thin',  sans-serif;
-  font-weight: 300;
+  font-weight: 600;
+  font-size: 1.1em;
+  line-height: 1.4;
 `
 
 export const Wrapper = styled.div`
