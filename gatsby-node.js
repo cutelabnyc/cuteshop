@@ -1,7 +1,9 @@
 const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
+    const miscPageTemplate = require.resolve(`./src/templates/MiscPages/index.js`)
+
     return graphql(`
     {
       allShopifyCollection {
@@ -16,8 +18,22 @@ exports.createPages = ({ graphql, actions }) => {
               }
           }
       }
+
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___title] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
     }
   `).then(result => {
+        // Create Shopify product pages
         result.data.allShopifyCollection.edges.forEach(({ node }) => {
             let collectionHandle = node.handle
 
@@ -26,12 +42,20 @@ exports.createPages = ({ graphql, actions }) => {
                     path: `/${collectionHandle}/${product.handle}/`,
                     component: path.resolve(`./src/templates/ProductPage/index.js`),
                     context: {
-                        // Data passed to context is available
-                        // in page queries as GraphQL variables.
                         handle: product.handle,
                         collectionHandle: collectionHandle
                     },
                 })
+            })
+        })
+        // Create misc pages (footer pages)
+        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+            createPage({
+                path: node.frontmatter.slug,
+                component: miscPageTemplate,
+                context: {
+                    slug: node.frontmatter.slug,
+                },
             })
         })
     })

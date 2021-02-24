@@ -4,21 +4,21 @@ import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 
 export const breakpoints = {
-  s: 576,
-  m: 768,
-  l: 992,
-  xl: 1200,
+    s: 576,
+    m: 768,
+    l: 992,
+    xl: 1200,
 }
 
 export const GlobalStyle = props => (
-  <Global
-    {...props}
-    styles={css`
+    <Global
+        {...props}
+        styles={css`
       body {
         margin: 0;
       }
       html {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Alegreya-Sans', sans-serif;
         min-height: 100%;
         height: 100%;
         color: purple;
@@ -44,8 +44,26 @@ export const GlobalStyle = props => (
         font-weight: regluar;
         font-style: regular;
       }
+      @font-face {
+        font-family: "Alegreya-Sans";
+        src: url("/Alegreya_Sans/AlegreyaSans-Regular.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
+      }
+      @font-face {
+        font-family: "Alegreya-Sans-Thin";
+        src: url("/Alegreya_Sans/AlegreyaSans-Thin.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
+      }
+      @font-face {
+        font-family: "Alegreya-Sans-Thin-Italic";
+        src: url("/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf") format("woff2");
+        font-weight: regluar;
+        font-style: regular;
+      }
     `}
-  />
+    />
 )
 
 export const Img = styled(Image)`

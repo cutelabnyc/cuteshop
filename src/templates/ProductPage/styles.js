@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
 export const ProductTitle = styled.h1`
-  font-size: 2.25rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
   word-wrap: break-word;
-  font-family: 'Roboto', 'Roboto', sans-serif;
+  font-family: 'Alegreya-Sans-Thin', sans-serif;
   font-weight: 400;
   margin: 0 0 0.5rem;
   line-height: 1.4;
@@ -17,13 +17,15 @@ export const ProductWrapper = styled.div`
 `
 
 export const ProductDescription = styled.div`
-  margin-top: 40px;
-  font-family: 'Roboto', 'Roboto', sans-serif;
-  font-weight: 300;
+  font-family: 'Alegreya-Sans-Thin',  sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  line-height: 1.4;
 `
 
 export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
+  font-family: 'Alegreya-Sans-Thin',  sans-serif;
 `

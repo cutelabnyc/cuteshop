@@ -70,7 +70,7 @@ const Header = ({ siteTitle }) => {
         <HeaderWrapper>
             <Container>
                 <HeaderLink to="/"><HeaderTitle>{siteTitle}</HeaderTitle></HeaderLink>
-                <HeaderLink to="/cart" style={{ fontFamily: "Roboto-Thin", fontSize: "28px" }}>
+                <HeaderLink to="/cart" style={{ fontFamily: "Alegreya-Sans-Thin", fontSize: "28px" }}>
                     {hasItems && <CartCounter>{quantity}</CartCounter>}
                         Cart 🛒
                     </HeaderLink>

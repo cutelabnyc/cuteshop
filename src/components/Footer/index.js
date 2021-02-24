@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql, useStaticQuery } from "gatsby"
+
 import {
     Container,
     MenuLink,
@@ -8,11 +10,34 @@ import {
 } from './styles'
 
 const Footer = () => {
+    const { allMarkdownRemark } = useStaticQuery(
+        graphql`
+                query {
+                    allMarkdownRemark {
+                        edges {
+                            node {
+                                frontmatter {
+                                    title
+                                    slug
+                                }
+                            }
+                        }
+                    }
+                }
+            `
+    )
     return (
         <FooterContainer>
             <Container>
-                <MenuLink to={'/faq'}>FAQs</MenuLink>
-                <MenuLink to={'/contact'}>Contact</MenuLink>
+                {
+                    allMarkdownRemark.edges.map((page, key) => {
+                        return (
+                            <MenuLink to={page.node.frontmatter.slug} key={key}>
+                                {page.node.frontmatter.title}
+                            </MenuLink>
+                        )
+                    })
+                }
             </Container>
             <Container>
                 <CuteLabLink>

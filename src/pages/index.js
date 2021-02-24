@@ -13,7 +13,7 @@ import {
 import { MenuLink } from '../components/Navigation/styles'
 import { ProductTitle, ProductDescription, ProductWrapper, Wrapper } from '../templates/ProductPage/styles'
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
     const query = useStaticQuery(
         graphql`
             query {
@@ -77,11 +77,11 @@ const IndexPage = ({ data }) => {
         `
     )
 
-    const product = data.allShopifyCollection.edges[0].node.products[0]
-    const collection = data.allShopifyCollection.edges[0].node
+    const product = query.allShopifyCollection.edges[0].node.products[0]
+    const collection = query.allShopifyCollection.edges[0].node
     return (
         <>
-            <SEO title={product.title} description={product.description} />
+            <SEO title={"Welcome!"} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: "8px" }}>
                     {collection.products.map((product, key) => {

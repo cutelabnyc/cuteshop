@@ -12,7 +12,7 @@ export const CollectionWrapper = styled.div`
   background: white;
   border-bottom: 1px dashed purple;
   a {
-    font-family: "Roboto"
+    font-family: "Alegreya-Sans"
   }
 `
 
@@ -36,7 +36,7 @@ export const HeaderLink = styled(Link)`
   color: purple;
   text-decoration: none;
   font-size: 24px;
-  font-family: "Roboto-Thin";
+  font-family: "Alegreya-Sans-Thin";
   padding-left: 8px;
   padding-right: 8px;
   @media (max-width: ${breakpoints.s}px) {
@@ -48,7 +48,7 @@ export const MenuLink = styled(Link)`
   color: purple;
   text-decoration: none;
   font-size: 24px;
-  font-family: "Roboto-Thin";
+  font-family: "Alegreya-Sans-Thin";
   padding-left: 8px;
   padding-right: 8px;
   &:hover {
