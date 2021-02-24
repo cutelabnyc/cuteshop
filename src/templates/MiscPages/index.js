@@ -1,4 +1,5 @@
 import React from "react"
+import SEO from "~/components/seo"
 import { graphql } from "gatsby"
 import {
     Container,
@@ -11,15 +12,18 @@ export default function Template({
     const { markdownRemark } = data
     const { frontmatter, html } = markdownRemark
     return (
-        <Container>
-            <Wrapper>
-                <h1>{frontmatter.title}</h1>
-                <div
-                    className="blog-post-content"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </Wrapper>
-        </Container>
+        <>
+            <SEO title={markdownRemark.frontmatter.title} description={markdownRemark.html} />
+            <Container>
+                <Wrapper>
+                    <h1>{frontmatter.title}</h1>
+                    <div
+                        className="blog-post-content"
+                        dangerouslySetInnerHTML={{ __html: html }}
+                    />
+                </Wrapper>
+            </Container>
+        </>
     )
 }
 export const pageQuery = graphql`

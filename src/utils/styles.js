@@ -18,7 +18,7 @@ export const GlobalStyle = props => (
         margin: 0;
       }
       html {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Alegreya-Sans', sans-serif;
         min-height: 100%;
         height: 100%;
         color: purple;
