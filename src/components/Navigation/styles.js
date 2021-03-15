@@ -23,11 +23,11 @@ export const HeaderTitle = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: baseline;
   margin: 0 auto;
-  max-width: 848px;
-  padding: 20px;
+  max-width: 960px;
+  padding: 8px;
   padding-top: 43px;
   padding-bottom: 18px;
 `
@@ -38,7 +38,7 @@ export const HeaderLink = styled(Link)`
   font-size: 24px;
   font-family: "Alegreya-Sans-Thin";
   padding-left: 8px;
-  padding-right: 8px;
+  padding-right: 40px;
   @media (max-width: ${breakpoints.s}px) {
     font-size: 1.4rem;
   }
@@ -51,6 +51,7 @@ export const MenuLink = styled(Link)`
   font-family: "Alegreya-Sans-Thin";
   padding-left: 8px;
   padding-right: 8px;
+  margin-right: 110px;
   &:hover {
       box-shadow: inset -3px 0px 0px 0px purple, inset 3px 0px 0px 0px purple ;
       transition: 1s;

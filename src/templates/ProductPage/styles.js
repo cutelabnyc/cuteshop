@@ -28,4 +28,5 @@ export const Wrapper = styled.div`
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   font-family: 'Alegreya-Sans-Thin',  sans-serif;
+  text-align: justify;
 `
