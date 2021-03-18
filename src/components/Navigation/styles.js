@@ -63,12 +63,13 @@ export const MenuLink = styled(Link)`
 `
 
 export const CartCounter = styled.span`
-  background-color: white;
-  color: #663399;
+  background-color: purple;
+  color: white;
   border-radius: 20px;
+  border: 1px solid purple;
   padding: 0 10px;
   font-size: 1.2rem;
   float: right;
   margin: -10px;
-  z-index: 20;
+  z-index: 40;
 `

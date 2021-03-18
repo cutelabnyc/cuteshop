@@ -17,10 +17,10 @@ export const ProductWrapper = styled.div`
 `
 
 export const ProductDescription = styled.div`
-  font-family: 'Alegreya-Sans-Thin',  sans-serif;
+  font-family: 'Alegreya-Sans',  sans-serif;
   font-weight: 600;
   font-size: 1.1em;
-  line-height: 1.4;
+  line-height: 1.7;
 `
 
 export const Wrapper = styled.div`
