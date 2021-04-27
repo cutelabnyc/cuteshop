@@ -56,10 +56,12 @@ const ProductPage = ({ data }) => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
+                            <ProductForm product={product} />
+                            <br />
+                            <hr />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
-                            <ProductForm product={product} />
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>

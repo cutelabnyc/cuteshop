@@ -94,8 +94,23 @@ export const TwoColumnGrid = styled.div`
   }
 `
 
+export const ThreeColumnGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+  grid-template-rows: 1auto;
+  grid-template-areas: 'left . center . right';
+
+  @media (max-width: ${breakpoints.l}px) {
+    display: block;
+  }
+`
+
 export const GridLeft = styled.div`
   grid-area: left;
+`
+
+export const GridCenter = styled.div`
+  grid-area: center;
 `
 
 export const GridRight = styled.div`

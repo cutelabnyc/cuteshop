@@ -2,6 +2,14 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
+import {
+    Container,
+    ThreeColumnGrid,
+    GridLeft,
+    GridCenter,
+    GridRight,
+} from '~/utils/styles'
+import { AddToCart, Quantity, Input } from './styles'
 
 import StoreContext from '~/context/StoreContext'
 
@@ -97,8 +105,7 @@ const ProductForm = ({ product }) => {
 
     return (
         <>
-            <h3>{price}</h3>
-            {options.map(({ id, name, values }, index) => (
+            {/* {options.map(({ id, name, values }, index) => (
                 <React.Fragment key={id}>
                     <label htmlFor={name}>{name} </label>
                     <select
@@ -118,26 +125,38 @@ const ProductForm = ({ product }) => {
                     </select>
                     <br />
                 </React.Fragment>
-            ))}
-            <label htmlFor="quantity">Quantity </label>
-            <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                min="1"
-                step="1"
-                onChange={handleQuantityChange}
-                value={quantity}
-            />
-            <br />
-            <button
-                type="submit"
-                disabled={!available || adding}
-                onClick={handleAddToCart}
-            >
-                Add to Cart
-      </button>
-            {!available && <p>This Product is out of Stock!</p>}
+            ))} */}
+            <Container>
+                    <ThreeColumnGrid>
+                        <GridLeft>
+                        <h2>{price}</h2>
+                        </GridLeft>
+                        <GridCenter>
+                        <div style={{margin: "20px"}}>
+                        <Quantity htmlFor="quantity">Quantity: </Quantity>
+                        <Input
+                            type="number"
+                            id="quantity"
+                            name="quantity"
+                            min="1"
+                            step="1"
+                            onChange={handleQuantityChange}
+                            value={quantity}
+                        />
+                        </div>
+                        </GridCenter>
+                        <GridRight> 
+                            <AddToCart
+                                type="submit"
+                                disabled={!available || adding}
+                                onClick={handleAddToCart}
+                             >
+                                Add to Cart
+                            </AddToCart>
+                            {!available && <p>This Product is out of Stock!</p>}
+                        </GridRight>
+                    </ThreeColumnGrid>
+                </Container>
         </>
     )
 }
