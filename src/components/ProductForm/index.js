@@ -10,14 +10,7 @@ import {
     GridRight,
 } from '~/utils/styles'
 import { AddToCart, Quantity, QuantityLabel, Input } from './styles'
-
 import StoreContext from '~/context/StoreContext'
-
-// TODO: 04/28/21 - Separate top part of product page from
-// array of thumbnails of all the photos at the bottom of the page
-// and move the "add to cart" stuff at the top of the page
-//
-// -- max
 
 const ProductForm = ({ product }) => {
     const {

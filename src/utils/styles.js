@@ -81,6 +81,7 @@ export const Img = styled(Image)`
 export const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
+  height: ${(props) => (props.height ? props.height : 'auto')};
 `
 
 export const FlexContainer = styled.div`

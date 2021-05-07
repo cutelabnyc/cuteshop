@@ -17,13 +17,46 @@ import {
     ProductWrapper,
     Wrapper
 } from './styles'
-
+import Gallery from 'react-grid-gallery';
 import { MenuLink } from '../../components/Navigation/styles'
 
 const ProductPage = ({ data }) => {
 
     const product = data.shopifyProduct
     const collection = data.shopifyCollection
+
+    const productImages =
+    [
+    {
+            src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_b_3000px.jpg",
+            thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_b_thumbnail.jpeg",
+            thumbnailWidth: 168,
+            thumbnailHeight: 120,
+    },
+    {
+            src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_c_3000px.jpg",
+            thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_c_thumbnail.jpeg",
+            thumbnailWidth: 120,
+            thumbnailHeight: 120
+    },
+    {
+            src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_097_3000px.jpg",
+            thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_097_thumbnail.jpeg",
+            thumbnailWidth: 120,
+            thumbnailHeight: 180
+    },
+    {
+            src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_123_3000px.jpg",
+            thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_123_thumbnail.jpeg",
+            thumbnailWidth: 120,
+            thumbnailHeight: 177
+    },
+    {
+            src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_192_3000px.jpg",
+            thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_192_thumbnail.jpeg",
+            thumbnailWidth: 120,
+            thumbnailHeight: 180
+    }]
 
     return (
         <>
@@ -46,17 +79,13 @@ const ProductPage = ({ data }) => {
                 <Container>
                     <TwoColumnGrid>
                         <GridLeft>
-                            {product.images.map(image => (
                                 <Img
-                                    fluid={image.localFile.childImageSharp.fluid}
-                                    key={image.id}
+                                    fluid={product.images[0].localFile.childImageSharp.fluid}
                                     alt={product.title}
                                 />
-                            ))}
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            
                             <ProductForm product={product} />
                             <hr />
                             <ProductDescription
@@ -65,7 +94,12 @@ const ProductPage = ({ data }) => {
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
+                <hr />
+                <Container height={'300px'} >
+                <Gallery images={productImages} margin={15} enableImageSelection={false}/>
+                </Container>
             </Wrapper>
+            
         </>
     )
 }
