@@ -6,6 +6,7 @@ import ProductForm from '~/components/ProductForm'
 import {
     Img,
     Container,
+    GalleryContainer,
     TwoColumnGrid,
     GridLeft,
     GridRight,
@@ -95,9 +96,9 @@ const ProductPage = ({ data }) => {
                     </TwoColumnGrid>
                 </Container>
                 <hr />
-                <Container height={'300px'} >
-                <Gallery images={productImages} margin={15} enableImageSelection={false}/>
-                </Container>
+                <GalleryContainer>
+                    <Gallery images={productImages} margin={15} enableImageSelection={false}/>
+                </GalleryContainer>
             </Wrapper>
             
         </>

@@ -81,7 +81,15 @@ export const Img = styled(Image)`
 export const Container = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  height: ${(props) => (props.height ? props.height : 'auto')};
+`
+
+export const GalleryContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  height: 300px;
+  @media (max-width: 828px) {
+    height: 400px;
+  }
 `
 
 export const FlexContainer = styled.div`

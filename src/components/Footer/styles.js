@@ -11,6 +11,9 @@ export const FooterContainer = styled.div`
   padding: 20px;
   padding-top: 18px;
   padding-bottom: 10px;
+  @media (max-width: ${breakpoints.s}px) {
+    padding: 0px;
+  };
 `
 
 export const Container = styled.div`
@@ -30,14 +33,16 @@ export const MenuLink = styled(Link)`
   padding-left: 24px;
   padding-right: 24px;
   @media (max-width: ${breakpoints.s}px) {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 `
 
 export const CuteLabLink = styled.div`
   color: purple;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 12px;
   font-family: "Roboto-Thin";
   padding-left: 8px;
   padding-right: 8px;
@@ -46,7 +51,9 @@ export const CuteLabLink = styled.div`
       text-decoration: none;
   }
   @media (max-width: ${breakpoints.s}px) {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 `
 
@@ -58,6 +65,6 @@ export const Copyright = styled.div`
   padding-left: 8px;
   padding-right: 8px;
   @media (max-width: ${breakpoints.s}px) {
-    font-size: 1.4rem;
+    font-size: 1.0rem;
   }
 `
