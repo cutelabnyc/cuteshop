@@ -42,7 +42,7 @@ export const MenuLink = styled(Link)`
 export const CuteLabLink = styled.div`
   color: purple;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 24px;
   font-family: "Roboto-Thin";
   padding-left: 8px;
   padding-right: 8px;
