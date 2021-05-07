@@ -83,6 +83,12 @@ export const Container = styled.div`
   max-width: 960px;
 `
 
+export const FlexContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+`
+
 export const TwoColumnGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 2rem 1fr;

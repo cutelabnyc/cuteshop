@@ -3,15 +3,21 @@ import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
 import {
-    Container,
+    FlexContainer,
     ThreeColumnGrid,
     GridLeft,
     GridCenter,
     GridRight,
 } from '~/utils/styles'
-import { AddToCart, Quantity, Input } from './styles'
+import { AddToCart, Quantity, QuantityLabel, Input } from './styles'
 
 import StoreContext from '~/context/StoreContext'
+
+// TODO: 04/28/21 - Separate top part of product page from
+// array of thumbnails of all the photos at the bottom of the page
+// and move the "add to cart" stuff at the top of the page
+//
+// -- max
 
 const ProductForm = ({ product }) => {
     const {
@@ -126,14 +132,14 @@ const ProductForm = ({ product }) => {
                     <br />
                 </React.Fragment>
             ))} */}
-            <Container>
-                    <ThreeColumnGrid>
-                        <GridLeft>
-                        <h2>{price}</h2>
-                        </GridLeft>
-                        <GridCenter>
-                        <div style={{margin: "20px"}}>
-                        <Quantity htmlFor="quantity">Quantity: </Quantity>
+            <FlexContainer>
+                    {/* <ThreeColumnGrid> */}
+                        {/* <GridLeft> */}
+                        <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{price}</h2></div>
+                        {/* </GridLeft> */}
+                        {/* <GridCenter> */}
+                        <Quantity>
+                        <QuantityLabel htmlFor="quantity">Quantity: </QuantityLabel>
                         <Input
                             type="number"
                             id="quantity"
@@ -143,9 +149,9 @@ const ProductForm = ({ product }) => {
                             onChange={handleQuantityChange}
                             value={quantity}
                         />
-                        </div>
-                        </GridCenter>
-                        <GridRight> 
+                        </Quantity>
+                        {/* </GridCenter> */}
+                        {/* <GridRight>  */}
                             <AddToCart
                                 type="submit"
                                 disabled={!available || adding}
@@ -154,9 +160,9 @@ const ProductForm = ({ product }) => {
                                 Add to Cart
                             </AddToCart>
                             {!available && <p>This Product is out of Stock!</p>}
-                        </GridRight>
-                    </ThreeColumnGrid>
-                </Container>
+                        {/* </GridRight> */}
+                    {/* </ThreeColumnGrid> */}
+                </FlexContainer>
         </>
     )
 }

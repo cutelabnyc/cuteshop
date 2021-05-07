@@ -110,10 +110,10 @@ const IndexPage = () => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
+                            <ProductForm product={product} />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
-                            <ProductForm product={product} />
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
