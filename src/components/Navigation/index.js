@@ -42,12 +42,13 @@ const Navigation = ({ siteTitle }) => {
                 }
             `
     )
+
     return (
         <>
             <Header siteTitle={siteTitle} />
             <CollectionWrapper>
                 <Container style={{ padding: "8px" }}>
-                    {allShopifyCollection.edges.map((collection, key) => {
+                    {allShopifyCollection.edges.filter(collection => !collection.node).map((collection, key) => {
                         return (
                             <MenuLink
                                 to={`${collection.node.handle}/${collection.node.products[0].handle}`}

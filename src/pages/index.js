@@ -7,10 +7,13 @@ import {
     Img,
     Container,
     TwoColumnGrid,
+    GalleryContainer,
     GridLeft,
     GridRight,
 } from '~/utils/styles'
+import ProductImages from '../components/assets/product-assets'
 import { MenuLink } from '../components/Navigation/styles'
+import Gallery from 'react-grid-gallery';
 import { ProductTitle, ProductDescription, ProductWrapper, Wrapper } from '../templates/ProductPage/styles'
 
 const IndexPage = () => {
@@ -111,12 +114,17 @@ const IndexPage = () => {
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
                             <ProductForm product={product} />
+                            <hr />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
+                <hr />
+                <GalleryContainer>
+                    <Gallery images={ProductImages} margin={15} enableImageSelection={false}/>
+                </GalleryContainer>
             </Wrapper>
         </>
     )

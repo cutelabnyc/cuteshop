@@ -5,7 +5,7 @@ import { breakpoints } from '../../utils/styles'
 
 export const HeaderWrapper = styled.div`
   background: white;
-  border-bottom: 1px solid purple;
+  /* border-bottom: 1px solid purple; */
 `
 
 export const CollectionWrapper = styled.div`

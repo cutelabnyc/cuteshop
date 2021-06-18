@@ -14,9 +14,11 @@ export const GlobalStyle = props => (
     <Global
         {...props}
         styles={css`
+
       body {
         margin: 0;
       }
+
       html {
         font-family: 'Alegreya-Sans', sans-serif;
         min-height: 100%;
@@ -26,6 +28,7 @@ export const GlobalStyle = props => (
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
       }
+
       @font-face {
         font-family: "PressStart2P";
         src: url("/Press_Start_2P/PressStart2P-Regular.ttf") format("woff2");

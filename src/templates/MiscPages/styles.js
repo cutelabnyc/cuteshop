@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  font-size: 24px;
+  a {
+      color: #57B955;
+  }
   justify-content: space-between;
   align-items: baseline;
   margin: 0 auto;
