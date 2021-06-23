@@ -15,7 +15,7 @@ If you live in the NYC area, or in Montréal, you can pick up your orders in per
 
 ## 🔁 What is CuteLab's return policy?
 
-TBD
+CuteLab is happy to accept returns within two weeks of receiving your order, provided the product is in the same condition as when you received it (no [rack rash](https://www.controlvoltage.net/nylon-washers-50pk.html)).
 
 ## 👩‍🚒 My module isn't working
 
