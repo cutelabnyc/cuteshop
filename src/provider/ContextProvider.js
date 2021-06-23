@@ -4,10 +4,16 @@ import Client from 'shopify-buy'
 
 import Context from '~/context/StoreContext'
 
+const storefrontAccessToken = !!process.env.SHOPIFY_ACCESS_TOKEN ?
+    process.env.SHOPIFY_ACCESS_TOKEN :
+    process.env.GATSBY_SHOPIFY_ACCESS_TOKEN;
+const shopName = !!process.env.SHOP_NAME ?
+    process.env.SHOP_NAME :
+    process.env.GATSBY_SHOP_NAME;
 const client = Client.buildClient(
     {
-        storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-        domain: `${process.env.SHOP_NAME}.myshopify.com`,
+        storefrontAccessToken,
+        domain: `${shopName}.myshopify.com`,
     },
     fetch
 )
