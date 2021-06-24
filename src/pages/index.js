@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import SEO from '~/components/seo'
-import ProductForm from '~/components/ProductForm'
 import {
     Img,
     Container,
@@ -15,6 +14,7 @@ import ProductImages from '../components/assets/product-assets'
 import { MenuLink } from '../components/Navigation/styles'
 import Gallery from 'react-grid-gallery';
 import { ProductTitle, ProductDescription, ProductWrapper, Wrapper } from '../templates/ProductPage/styles'
+import { PaypalButtonLocal, PaypalButtonInternational } from '../components/PaypalButton'
 
 const IndexPage = () => {
     const query = useStaticQuery(
@@ -113,8 +113,10 @@ const IndexPage = () => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            <ProductForm product={product} />
+                            {/* <ProductForm product={product} /> */}
+                            <PaypalButtonLocal />
                             <hr />
+                            <PaypalButtonInternational />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />

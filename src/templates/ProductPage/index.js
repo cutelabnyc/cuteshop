@@ -21,6 +21,7 @@ import {
 import ProductImages from '../../components/assets/product-assets'
 import Gallery from 'react-grid-gallery';
 import { MenuLink } from '../../components/Navigation/styles'
+import { PaypalButtonLocal, PaypalButtonInternational } from '../../components/PaypalButton'
 
 const ProductPage = ({ data }) => {
 
@@ -55,8 +56,10 @@ const ProductPage = ({ data }) => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            <ProductForm product={product} />
+                            {/* <ProductForm product={product} /> */}
+                            <PaypalButtonLocal />
                             <hr />
+                            <PaypalButtonInternational />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
                             />

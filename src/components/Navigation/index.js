@@ -3,9 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 
-import StoreContext from '~/context/StoreContext'
 import {
-    CartCounter,
     Container,
     MenuLink,
     HeaderTitle,
@@ -13,15 +11,6 @@ import {
     HeaderWrapper,
     CollectionWrapper,
 } from './styles'
-
-const useQuantity = () => {
-    const {
-        store: { checkout },
-    } = useContext(StoreContext)
-    const items = checkout ? checkout.lineItems : []
-    const total = reduce(items, (acc, item) => acc + item.quantity, 0)
-    return [total !== 0, total]
-}
 
 const Navigation = ({ siteTitle }) => {
     const { allShopifyCollection } = useStaticQuery(
@@ -65,16 +54,11 @@ const Navigation = ({ siteTitle }) => {
 }
 
 const Header = ({ siteTitle }) => {
-    const [hasItems, quantity] = useQuantity()
 
     return (
         <HeaderWrapper>
             <Container>
                 <HeaderLink to="/"><HeaderTitle>{siteTitle}</HeaderTitle></HeaderLink>
-                <HeaderLink to="/cart" style={{ fontFamily: "Alegreya-Sans-Thin", fontSize: "28px" }}>
-                    Cart 🛒
-                    {hasItems && <CartCounter>{quantity}</CartCounter>}
-                </HeaderLink>
             </Container>
         </HeaderWrapper>
     )
