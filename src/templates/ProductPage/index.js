@@ -13,10 +13,11 @@ import {
 } from '~/utils/styles'
 
 import {
-    ProductTitle,
-    ProductDescription,
-    ProductWrapper,
-    Wrapper
+  PreOrderLabel,
+  ProductTitle,
+  ProductDescription,
+  ProductWrapper,
+  Wrapper
 } from './styles'
 import ProductImages from '../../components/assets/product-assets'
 import Gallery from 'react-grid-gallery';
@@ -55,6 +56,7 @@ const ProductPage = ({ data }) => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
+                            <PreOrderLabel>{"Pre-order, ships December 2021"}</PreOrderLabel>
                             <ProductForm product={product} />
                             <hr />
                             <ProductDescription

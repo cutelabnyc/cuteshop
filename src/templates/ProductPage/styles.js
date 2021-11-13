@@ -23,6 +23,11 @@ export const ProductDescription = styled.div`
   line-height: 1.7;
 `
 
+export const PreOrderLabel = styled.label`
+  font-family: "Alegreya-Sans";
+  font-size: 1.2em;
+`
+
 export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 960px;

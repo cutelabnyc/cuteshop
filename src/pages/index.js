@@ -14,7 +14,7 @@ import {
 import ProductImages from '../components/assets/product-assets'
 import { MenuLink } from '../components/Navigation/styles'
 import Gallery from 'react-grid-gallery';
-import { ProductTitle, ProductDescription, ProductWrapper, Wrapper } from '../templates/ProductPage/styles'
+import { ProductTitle, ProductDescription, ProductWrapper, Wrapper, PreOrderLabel } from '../templates/ProductPage/styles'
 
 const IndexPage = () => {
     const query = useStaticQuery(
@@ -113,6 +113,7 @@ const IndexPage = () => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
+                            <PreOrderLabel>{"Pre-order, ships December 2021"}</PreOrderLabel>
                             <ProductForm product={product} />
                             <hr />
                             <ProductDescription
