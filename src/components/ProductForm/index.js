@@ -126,36 +126,36 @@ const ProductForm = ({ product }) => {
                 </React.Fragment>
             ))} */}
             <FlexContainer>
-                    {/* <ThreeColumnGrid> */}
-                        {/* <GridLeft> */}
-                        <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{price}</h2></div>
-                        {/* </GridLeft> */}
-                        {/* <GridCenter> */}
-                        <Quantity>
-                        <QuantityLabel htmlFor="quantity">Quantity: </QuantityLabel>
-                        <Input
-                            type="number"
-                            id="quantity"
-                            name="quantity"
-                            min="1"
-                            step="1"
-                            onChange={handleQuantityChange}
-                            value={quantity}
-                        />
-                        </Quantity>
-                        {/* </GridCenter> */}
-                        {/* <GridRight>  */}
-                            <AddToCart
-                                type="submit"
-                                disabled={!available || adding}
-                                onClick={handleAddToCart}
-                             >
-                                Add to Cart
-                            </AddToCart>
-                            {!available && <p>This Product is out of Stock!</p>}
-                        {/* </GridRight> */}
-                    {/* </ThreeColumnGrid> */}
-                </FlexContainer>
+                {/* <ThreeColumnGrid> */}
+                    {/* <GridLeft> */}
+                    <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{price}</h2></div>
+                    {/* </GridLeft> */}
+                    {/* <GridCenter> */}
+                    <Quantity>
+                    <QuantityLabel htmlFor="quantity">Quantity: </QuantityLabel>
+                    <Input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        step="1"
+                        onChange={handleQuantityChange}
+                        value={quantity}
+                    />
+                    </Quantity>
+                    {/* </GridCenter> */}
+                    {/* <GridRight>  */}
+                        <AddToCart
+                            type="submit"
+                            disabled={!available || adding}
+                            onClick={handleAddToCart}
+                            >
+                            Add to Cart
+                        </AddToCart>
+                    {/* </GridRight> */}
+                {/* </ThreeColumnGrid> */}
+            </FlexContainer>
+            {!available && <p>This Product is out of Stock!</p>}
         </>
     )
 }
