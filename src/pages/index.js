@@ -13,8 +13,13 @@ import {
 } from '~/utils/styles'
 import ProductImages from '../components/assets/product-assets'
 import { MenuLink } from '../components/Navigation/styles'
-import Gallery from 'react-grid-gallery';
-import { ProductTitle, ProductDescription, ProductWrapper, Wrapper, PreOrderLabel } from '../templates/ProductPage/styles'
+import Gallery from 'react-grid-gallery'
+import {
+    ProductTitle,
+    ProductDescription,
+    ProductWrapper,
+    Wrapper,
+} from '../templates/ProductPage/styles'
 
 const IndexPage = () => {
     const query = useStaticQuery(
@@ -27,7 +32,7 @@ const IndexPage = () => {
                             handle
 
                             # Pull in Product stuff
-                            products{
+                            products {
                                 id
                                 title
                                 handle
@@ -47,29 +52,29 @@ const IndexPage = () => {
                                     availableForSale
                                     shopifyId
                                     selectedOptions {
-                                    name
-                                    value
+                                        name
+                                        value
                                     }
                                 }
                                 priceRange {
                                     minVariantPrice {
-                                    amount
-                                    currencyCode
+                                        amount
+                                        currencyCode
                                     }
                                     maxVariantPrice {
-                                    amount
-                                    currencyCode
+                                        amount
+                                        currencyCode
                                     }
                                 }
                                 images {
                                     originalSrc
                                     id
                                     localFile {
-                                    childImageSharp {
-                                        fluid(maxWidth: 910) {
-                                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                                        childImageSharp {
+                                            fluid(maxWidth: 910) {
+                                                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                                            }
                                         }
-                                    }
                                     }
                                 }
                             }
@@ -84,9 +89,9 @@ const IndexPage = () => {
     const collection = query.allShopifyCollection.edges[0].node
     return (
         <>
-            <SEO title={"Welcome!"} description={product.description} />
+            <SEO title={'Welcome!'} description={product.description} />
             <ProductWrapper>
-                <Container style={{ padding: "8px" }}>
+                <Container style={{ padding: '8px' }}>
                     {collection.products.map((product, key) => {
                         return (
                             <MenuLink
@@ -105,7 +110,9 @@ const IndexPage = () => {
                         <GridLeft>
                             {product.images.map(image => (
                                 <Img
-                                    fluid={image.localFile.childImageSharp.fluid}
+                                    fluid={
+                                        image.localFile.childImageSharp.fluid
+                                    }
                                     key={image.id}
                                     alt={product.title}
                                 />
@@ -113,18 +120,23 @@ const IndexPage = () => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            <PreOrderLabel>{"Pre-order, ships December 2021"}</PreOrderLabel>
                             <ProductForm product={product} />
                             <hr />
                             <ProductDescription
-                                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                                dangerouslySetInnerHTML={{
+                                    __html: product.descriptionHtml,
+                                }}
                             />
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
                 <hr />
                 <GalleryContainer>
-                    <Gallery images={ProductImages} margin={15} enableImageSelection={false}/>
+                    <Gallery
+                        images={ProductImages}
+                        margin={15}
+                        enableImageSelection={false}
+                    />
                 </GalleryContainer>
             </Wrapper>
         </>

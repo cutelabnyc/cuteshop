@@ -13,18 +13,16 @@ import {
 } from '~/utils/styles'
 
 import {
-  PreOrderLabel,
-  ProductTitle,
-  ProductDescription,
-  ProductWrapper,
-  Wrapper
+    ProductTitle,
+    ProductDescription,
+    ProductWrapper,
+    Wrapper,
 } from './styles'
 import ProductImages from '../../components/assets/product-assets'
-import Gallery from 'react-grid-gallery';
+import Gallery from 'react-grid-gallery'
 import { MenuLink } from '../../components/Navigation/styles'
 
 const ProductPage = ({ data }) => {
-
     const product = data.shopifyProduct
     const collection = data.shopifyCollection
 
@@ -32,7 +30,7 @@ const ProductPage = ({ data }) => {
         <>
             <SEO title={product.title} description={product.description} />
             <ProductWrapper>
-                <Container style={{ padding: "8px" }}>
+                <Container style={{ padding: '8px' }}>
                     {collection.products.map((product, key) => {
                         return (
                             <MenuLink
@@ -49,88 +47,95 @@ const ProductPage = ({ data }) => {
                 <Container>
                     <TwoColumnGrid>
                         <GridLeft>
-                                <Img
-                                    fluid={product.images[0].localFile.childImageSharp.fluid}
-                                    alt={product.title}
-                                />
+                            <Img
+                                fluid={
+                                    product.images[0].localFile.childImageSharp
+                                        .fluid
+                                }
+                                alt={product.title}
+                            />
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            <PreOrderLabel>{"Pre-order, ships December 2021"}</PreOrderLabel>
                             <ProductForm product={product} />
                             <hr />
                             <ProductDescription
-                                dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                                dangerouslySetInnerHTML={{
+                                    __html: product.descriptionHtml,
+                                }}
                             />
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
                 <hr />
                 <GalleryContainer>
-                    <Gallery images={ProductImages} margin={15} enableImageSelection={false}/>
+                    <Gallery
+                        images={ProductImages}
+                        margin={15}
+                        enableImageSelection={false}
+                    />
                 </GalleryContainer>
             </Wrapper>
-            
         </>
     )
 }
 
 export const query = graphql`
-  query($handle: String!, $collectionHandle: String!) {
-    shopifyProduct(handle: { eq: $handle }) {
-      id
-      title
-      handle
-      productType
-      description
-      descriptionHtml
-      shopifyId
-      options {
-        id
-        name
-        values
-      }
-      variants {
-        id
-        title
-        price
-        availableForSale
-        shopifyId
-        selectedOptions {
-          name
-          value
-        }
-      }
-      priceRange {
-        minVariantPrice {
-          amount
-          currencyCode
-        }
-        maxVariantPrice {
-          amount
-          currencyCode
-        }
-      }
-      images {
-        originalSrc
-        id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 910) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-          }
-        }
-      }
-    }
-    shopifyCollection(handle: { eq: $collectionHandle }){
-        handle
-        products {
+    query($handle: String!, $collectionHandle: String!) {
+        shopifyProduct(handle: { eq: $handle }) {
+            id
             title
             handle
+            productType
+            description
+            descriptionHtml
+            shopifyId
+            options {
+                id
+                name
+                values
+            }
+            variants {
+                id
+                title
+                price
+                availableForSale
+                shopifyId
+                selectedOptions {
+                    name
+                    value
+                }
+            }
+            priceRange {
+                minVariantPrice {
+                    amount
+                    currencyCode
+                }
+                maxVariantPrice {
+                    amount
+                    currencyCode
+                }
+            }
+            images {
+                originalSrc
+                id
+                localFile {
+                    childImageSharp {
+                        fluid(maxWidth: 910) {
+                            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                        }
+                    }
+                }
+            }
+        }
+        shopifyCollection(handle: { eq: $collectionHandle }) {
+            handle
+            products {
+                title
+                handle
+            }
         }
     }
-  }
 `
 
 export default ProductPage
