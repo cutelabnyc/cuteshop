@@ -7,7 +7,7 @@ import StoreContext from '~/context/StoreContext'
 import {
     CartCounter,
     Container,
-    MenuLink,
+    MenuLink,   
     HeaderTitle,
     HeaderLink,
     HeaderWrapper,
@@ -51,7 +51,7 @@ const Navigation = ({ siteTitle }) => {
                     {allShopifyCollection.edges.filter(collection => !collection.node).map((collection, key) => {
                         return (
                             <MenuLink
-                                to={`${collection.node.handle}/${collection.node.products[0].handle}`}
+                                to={`/${collection.node.handle}/${collection.node.products[0].handle}`}
                                 key={key}
                             >
                                 {collection.node.title}

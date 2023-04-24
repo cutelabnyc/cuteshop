@@ -25,6 +25,7 @@
     "gatsby-source-shopify": "^3.0.24",
     "gatsby-transformer-remark": "^2.16.0",
     "gatsby-transformer-sharp": "^2.3.0",
+    "isomorphic-fetch": "^3.0.0",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
