@@ -51,7 +51,7 @@ export const MenuLink = styled(Link)`
   font-family: "Alegreya-Sans-Thin";
   padding-left: 8px;
   padding-right: 8px;
-  margin-right: 110px;
+  margin-right: 20px;
   &:hover {
       box-shadow: inset -3px 0px 0px 0px purple, inset 3px 0px 0px 0px purple ;
       transition: 1s;
