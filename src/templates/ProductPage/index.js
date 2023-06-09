@@ -25,6 +25,7 @@ import { MenuLink } from '../../components/Navigation/styles'
 const ProductPage = ({ data }) => {
     const product = data.shopifyProduct
     const collection = data.shopifyCollection
+    const isMessedUp = product.title.toLowerCase().search("messed up") >= 0;
 
     return (
         <>
@@ -70,7 +71,7 @@ const ProductPage = ({ data }) => {
                 <hr />
                 <GalleryContainer>
                     <Gallery
-                        images={ProductImages}
+                        images={isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops}
                         margin={15}
                         enableImageSelection={false}
                     />

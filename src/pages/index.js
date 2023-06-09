@@ -133,7 +133,7 @@ const IndexPage = () => {
                 <hr />
                 <GalleryContainer>
                     <Gallery
-                        images={ProductImages}
+                        images={ProductImages.missed_ops}
                         margin={15}
                         enableImageSelection={false}
                     />
