@@ -17,6 +17,7 @@ import {
     ProductDescription,
     ProductWrapper,
     Wrapper,
+    ProductSeparator,
 } from './styles'
 import ProductImages from '../../components/assets/product-assets'
 import Gallery from 'react-grid-gallery'
@@ -59,7 +60,7 @@ const ProductPage = ({ data }) => {
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
                             <ProductForm product={product} />
-                            <hr />
+                            <ProductSeparator />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{
                                     __html: product.descriptionHtml,
@@ -68,7 +69,7 @@ const ProductPage = ({ data }) => {
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
-                <hr />
+                <ProductSeparator />
                 <GalleryContainer>
                     <Gallery
                         images={isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops}

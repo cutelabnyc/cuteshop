@@ -19,6 +19,7 @@ import {
     ProductDescription,
     ProductWrapper,
     Wrapper,
+    ProductSeparator,
 } from '../templates/ProductPage/styles'
 
 const IndexPage = () => {
@@ -121,7 +122,7 @@ const IndexPage = () => {
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
                             <ProductForm product={product} />
-                            <hr />
+                            <ProductSeparator />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{
                                     __html: product.descriptionHtml,
@@ -130,7 +131,7 @@ const IndexPage = () => {
                         </GridRight>
                     </TwoColumnGrid>
                 </Container>
-                <hr />
+                <ProductSeparator />
                 <GalleryContainer>
                     <Gallery
                         images={ProductImages.missed_ops}

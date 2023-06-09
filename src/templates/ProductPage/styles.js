@@ -35,3 +35,8 @@ export const Wrapper = styled.div`
   font-family: 'Alegreya-Sans-Thin',  sans-serif;
   text-align: justify;
 `
+
+export const ProductSeparator = styled.hr`
+  border-top: none;
+  border-bottom: 1px dashed purple;
+`
