@@ -58,13 +58,6 @@ const ProductImages =
         messed_up:
         [
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0086_star.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0086_star_thumb.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 180,
-                        customOverlay: Overlay
-                },
-                {
                         src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0096_star.jpg",
                         thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0096_star_thumb.jpeg",
                         thumbnailWidth: 180,
