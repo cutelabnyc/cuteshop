@@ -66,6 +66,14 @@ const ProductImages =
 
                 },
                 {
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_plant.png",
+                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_plant_thumb.png",
+                        thumbnailWidth: 120,
+                        thumbnailHeight: 160,
+                        customOverlay: Overlay
+
+                },
+                {
                         src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0109_star.jpg",
                         thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0109_star_thumb.jpeg",
                         thumbnailWidth: 120,
@@ -78,14 +86,6 @@ const ProductImages =
                         thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0111_star_thumb.jpeg",
                         thumbnailWidth: 120,
                         thumbnailHeight: 161,
-                        customOverlay: Overlay
-
-                },
-                {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_plant.png",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_plant_thumb.png",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 160,
                         customOverlay: Overlay
 
                 },
