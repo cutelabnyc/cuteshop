@@ -42,8 +42,8 @@ const LineItem = props => {
             {/* {selectedOptions} */}
             {item.quantity}
             <p>
-                {'$' + Number.parseFloat(item.variant.price) * Number.parseFloat(item.quantity)}
-                <span style={{ color: "gray" }}>{item.quantity > 1 ? " - ($" + Number.parseInt(item.variant.price) + "/e)" : null}</span>
+                {'$' + Number.parseFloat(item.variant.priceV2.amount) * Number.parseFloat(item.quantity)}
+                <span style={{ color: "gray" }}>{item.quantity > 1 ? " - ($" + Number.parseInt(item.variant.priceV2.amount) + "/e)" : null}</span>
             </p>
             <RemoveButton onClick={handleRemove}>Remove</RemoveButton>
         </Wrapper>
