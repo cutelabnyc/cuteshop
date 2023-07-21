@@ -27,6 +27,7 @@ const ProductPage = ({ data }) => {
     const product = data.shopifyProduct
     const collection = data.shopifyCollection
     const isMessedUp = product.title.toLowerCase().search("messed up") >= 0;
+    const med = product.media;
 
     return (
         <>
@@ -50,10 +51,10 @@ const ProductPage = ({ data }) => {
                     <TwoColumnGrid>
                         <GridLeft>
                             <Img
-                                fluid={
-                                    product.images[0].localFile.childImageSharp
-                                        .fluid
+                                image={
+                                    med[0].image.gatsbyImageData
                                 }
+                                key={med[0].id}
                                 alt={product.title}
                             />
                         </GridLeft>
@@ -71,11 +72,11 @@ const ProductPage = ({ data }) => {
                 </Container>
                 <ProductSeparator />
                 <GalleryContainer>
-                    <Gallery
+                    {/* <Gallery
                         images={isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops}
                         margin={15}
                         enableImageSelection={false}
-                    />
+                    /> */}
                 </GalleryContainer>
             </Wrapper>
         </>
@@ -93,7 +94,7 @@ export const query = graphql`
             descriptionHtml
             shopifyId
             options {
-                id
+                shopifyId
                 name
                 values
             }
@@ -118,17 +119,14 @@ export const query = graphql`
                     currencyCode
                 }
             }
-            images {
-                originalSrc
-                id
-                localFile {
-                    childImageSharp {
-                        fluid(maxWidth: 910) {
-                            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        }
-                    }
+            media {
+                ... on ShopifyMediaImage {
+                  id
+                  image {
+                    gatsbyImageData
+                  }
                 }
-            }
+              }
         }
         shopifyCollection(handle: { eq: $collectionHandle }) {
             handle

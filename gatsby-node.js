@@ -7,22 +7,18 @@ exports.createPages = ({ actions, graphql }) => {
     return graphql(`
     {
       allShopifyCollection {
-          edges {
-              node {
-                title
-                handle
-                products {
-                  title
-                  handle
-                }
-              }
+        edges {
+          node {
+            title
+            handle
+            products {
+              title
+              handle
+            }
           }
+        }
       }
-
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___title] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(sort: {frontmatter: {title: DESC}}, limit: 1000) {
         edges {
           node {
             frontmatter {

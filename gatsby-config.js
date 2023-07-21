@@ -10,7 +10,24 @@ module.exports = {
         description: `CuteLab's modular synth storefront, very cute!`,
         author: `Max Ardito, Sam Tarakajian`,
     },
+    flags: {
+      FAST_DEV: true,
+    },
     plugins: [
+        {
+            resolve: "gatsby-source-shopify",
+            options: {
+            password: process.env.SHOPIFY_SHOP_PASSWORD,
+            storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
+            shopifyConnections: ["collections"],
+            },
+        },
+        "gatsby-plugin-image",
+        "gatsby-plugin-sharp",
+        "gatsby-transformer-remark",
+        "gatsby-transformer-sharp",
+        "gatsby-plugin-sitemap",
+        "gatsby-plugin-gatsby-cloud",
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
@@ -24,8 +41,6 @@ module.exports = {
                 path: `${__dirname}/resources/markdown`,
             },
         },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
         `gatsby-plugin-layout`,
         {
             resolve: `gatsby-plugin-manifest`,
@@ -37,29 +52,6 @@ module.exports = {
                 theme_color: `#663399`,
                 display: `minimal-ui`,
                 icon: `static/favicon.ico`, // This path is relative to the root of the site.
-            },
-        },
-        {
-            resolve: `gatsby-source-shopify`,
-            options: {
-                // The domain name of your Shopify shop. This is required.
-                // Example: 'gatsby-source-shopify-test-shop' if your Shopify address is
-                // 'gatsby-source-shopify-test-shop.myshopify.com'.
-                shopName: process.env.SHOP_NAME,
-
-                // An API access token to your Shopify shop. This is required.
-                // You can generate an access token in the "Manage private apps" section
-                // of your shop's Apps settings. In the Storefront API section, be sure
-                // to select "Allow this app to access your storefront data using the
-                // Storefront API".
-                // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
-                accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-
-                // Set verbose to true to display a verbose output on `npm run develop`
-                // or `npm run build`. This prints which nodes are being fetched and how
-                // much time was required to fetch and process the data.
-                // Defaults to true.
-                verbose: true,
             },
         },
         {
@@ -85,10 +77,5 @@ module.exports = {
                 respectDNT: true,
             },
         },
-        // For FAQ and Contact pages
-        `gatsby-transformer-remark`,
-        // this (optional) plugin enables Progressive Web App + Offline functionality
-        // To learn more, visit: https://gatsby.app/offline
-        // 'gatsby-plugin-offline',
-    ],
+    ].filter(Boolean),
 }

@@ -128,7 +128,7 @@ const ProductForm = ({ product }) => {
             <FlexContainer>
                 {/* <ThreeColumnGrid> */}
                     {/* <GridLeft> */}
-                    <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{price}</h2></div>
+                    <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{`${price}`}</h2></div>
                     {/* </GridLeft> */}
                     {/* <GridCenter> */}
                     <Quantity>
@@ -185,7 +185,7 @@ ProductForm.propTypes = {
             PropTypes.shape({
                 availableForSale: PropTypes.bool,
                 id: PropTypes.string,
-                price: PropTypes.string,
+                price: PropTypes.number,
                 title: PropTypes.string,
                 shopifyId: PropTypes.string,
                 selectedOptions: PropTypes.arrayOf(

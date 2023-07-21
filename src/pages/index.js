@@ -5,6 +5,7 @@ import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
 import {
     Img,
+    SImg,
     Container,
     TwoColumnGrid,
     GalleryContainer,
@@ -26,60 +27,54 @@ const IndexPage = () => {
     const query = useStaticQuery(
         graphql`
             query {
-                allShopifyCollection(sort: { fields: [id], order: DESC }) {
+                allShopifyCollection(sort: {id: DESC}) {
                     edges {
-                        node {
-                            # Pull in collection handle
-                            handle
-
-                            # Pull in Product stuff
-                            products {
-                                id
-                                title
-                                handle
-                                productType
-                                description
-                                descriptionHtml
-                                shopifyId
-                                options {
-                                    id
-                                    name
-                                    values
-                                }
-                                variants {
-                                    id
-                                    title
-                                    price
-                                    availableForSale
-                                    shopifyId
-                                    selectedOptions {
-                                        name
-                                        value
-                                    }
-                                }
-                                priceRange {
-                                    minVariantPrice {
-                                        amount
-                                        currencyCode
-                                    }
-                                    maxVariantPrice {
-                                        amount
-                                        currencyCode
-                                    }
-                                }
-                                images {
-                                    originalSrc
-                                    id
-                                    localFile {
-                                        childImageSharp {
-                                            fluid(maxWidth: 910) {
-                                                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                                            }
-                                        }
-                                    }
-                                }
+                      node {
+                        handle
+                        products {
+                          id
+                          title
+                          handle
+                          productType
+                          description
+                          descriptionHtml
+                          shopifyId
+                          options {
+                            shopifyId
+                            name
+                            values
+                          }
+                          variants {
+                            id
+                            title
+                            price
+                            availableForSale
+                            shopifyId
+                            selectedOptions {
+                              name
+                              value
                             }
+                          }
+                          priceRange {
+                            minVariantPrice {
+                              amount
+                              currencyCode
+                            }
+                            maxVariantPrice {
+                              amount
+                              currencyCode
+                            }
+                          }
+                          media {
+                            ... on ShopifyMediaImage {
+                              id
+                              image {
+                                gatsbyImageData
+                              }
+                            }
+                          }
                         }
+                      }
                     }
                 }
             }
@@ -88,6 +83,9 @@ const IndexPage = () => {
 
     const product = query.allShopifyCollection.edges[0].node.products[0]
     const collection = query.allShopifyCollection.edges[0].node
+
+    console.log(product);
+
     return (
         <>
             <SEO title={'Welcome!'} description={product.description} />
@@ -106,39 +104,41 @@ const IndexPage = () => {
                 </Container>
             </ProductWrapper>
             <Wrapper>
-                <Container>
-                    <TwoColumnGrid>
-                        <GridLeft>
-                            {product.images.map(image => (
-                                <Img
-                                    fluid={
-                                        image.localFile.childImageSharp.fluid
-                                    }
-                                    key={image.id}
-                                    alt={product.title}
-                                />
-                            ))}
-                        </GridLeft>
-                        <GridRight>
-                            <ProductTitle>{product.title}</ProductTitle>
-                            <ProductForm product={product} />
-                            <ProductSeparator />
-                            <ProductDescription
-                                dangerouslySetInnerHTML={{
-                                    __html: product.descriptionHtml,
-                                }}
+            <Container>
+                <TwoColumnGrid>
+                    <GridLeft>
+                        {product.media.map(med => (
+                            <Img
+                                image={
+                                    med.image.gatsbyImageData
+                                }
+                                key={med.id}
+                                alt={product.title}
                             />
-                        </GridRight>
-                    </TwoColumnGrid>
-                </Container>
-                <ProductSeparator />
-                <GalleryContainer>
-                    <Gallery
-                        images={ProductImages.missed_ops}
-                        margin={15}
-                        enableImageSelection={false}
-                    />
-                </GalleryContainer>
+                        ))}
+                    </GridLeft>
+                    <div></div>
+                    <GridRight>
+                        <ProductTitle>{product.title}</ProductTitle>
+                        <ProductForm product={product} />
+                        <ProductSeparator />
+                        <ProductDescription
+                            dangerouslySetInnerHTML={{
+                                __html: product.descriptionHtml,
+                            }}
+                        />
+                    </GridRight>
+                </TwoColumnGrid>
+            </Container>
+           
+            <ProductSeparator />
+            <GalleryContainer>
+                {/* <Gallery
+                    images={ProductImages.missed_ops}
+                    margin={15}
+                    enableImageSelection={false}
+                /> */}
+            </GalleryContainer>
             </Wrapper>
         </>
     )

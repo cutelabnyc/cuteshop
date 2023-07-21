@@ -70,7 +70,7 @@ const ContextProvider = ({ children }) => {
             }
         }
 
-        initializeCheckout()
+        // initializeCheckout()
     }, [store.client.checkout])
 
     useEffect(

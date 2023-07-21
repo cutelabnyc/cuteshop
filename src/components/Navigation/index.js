@@ -27,16 +27,16 @@ const Navigation = ({ siteTitle }) => {
     const { allShopifyCollection } = useStaticQuery(
         graphql`
                 query {
-                    allShopifyCollection(sort: { fields: [id], order: DESC }) {
+                    allShopifyCollection(sort: {id: DESC}) {
                         edges {
-                            node {
-                                title
-                                handle
-                                products {
-                                    title
-                                    handle
-                                }
+                          node {
+                            title
+                            handle
+                            products {
+                              title
+                              handle
                             }
+                          }
                         }
                     }
                 }
