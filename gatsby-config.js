@@ -9,6 +9,7 @@ module.exports = {
         title: `CuteShop`,
         description: `CuteLab's modular synth storefront, very cute!`,
         author: `Max Ardito, Sam Tarakajian`,
+        siteUrl: "https://shop.cutelab.nyc",
     },
     flags: {
       FAST_DEV: true,
