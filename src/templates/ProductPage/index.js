@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 
 import SEO from '~/components/seo'
@@ -20,7 +20,9 @@ import {
     ProductSeparator,
 } from './styles'
 import ProductImages from '../../components/assets/product-assets'
-import Gallery from 'react-grid-gallery'
+import { Gallery } from 'react-grid-gallery'
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import { MenuLink } from '../../components/Navigation/styles'
 
 const ProductPage = ({ data }) => {
@@ -28,6 +30,20 @@ const ProductPage = ({ data }) => {
     const collection = data.shopifyCollection
     const isMessedUp = product.title.toLowerCase().search("messed up") >= 0;
     const med = product.media;
+    const images = isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops;
+
+    const [index, setIndex] = useState(-1);
+
+    const currentImage = images[index];
+    const nextIndex = (index + 1) % images.length;
+    const nextImage = images[nextIndex] || currentImage;
+    const prevIndex = (index + images.length - 1) % images.length;
+    const prevImage = images[prevIndex] || currentImage;
+  
+    const handleClick = (index, item) => setIndex(index);
+    const handleClose = () => setIndex(-1);
+    const handleMovePrev = () => setIndex(prevIndex);
+    const handleMoveNext = () => setIndex(nextIndex);
 
     return (
         <>
@@ -72,13 +88,30 @@ const ProductPage = ({ data }) => {
                 </Container>
                 <ProductSeparator />
                 <GalleryContainer>
-                    {/* <Gallery
-                        images={isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops}
+                    <Gallery
+                        images={images}
                         margin={15}
                         enableImageSelection={false}
-                    /> */}
+                        onClick={handleClick}
+                    />
                 </GalleryContainer>
             </Wrapper>
+
+            {!!currentImage && (
+                /* @ts-ignore */
+                <Lightbox
+                mainSrc={currentImage.original}
+                imageTitle={currentImage.caption}
+                mainSrcThumbnail={currentImage.src}
+                nextSrc={nextImage.original}
+                nextSrcThumbnail={nextImage.src}
+                prevSrc={prevImage.original}
+                prevSrcThumbnail={prevImage.src}
+                onCloseRequest={handleClose}
+                onMovePrevRequest={handleMovePrev}
+                onMoveNextRequest={handleMoveNext}
+                />
+            )}
         </>
     )
 }

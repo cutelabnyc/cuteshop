@@ -16,85 +16,75 @@ const ProductImages =
         missed_ops:
         [
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_b_3000px.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_b_thumbnail.jpeg",
-                        thumbnailWidth: 168,
-                        thumbnailHeight: 120,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_b_3000px.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_b_thumbnail.jpeg",
+                        width: 168,
+                        height: 120
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_c_3000px.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_c_thumbnail.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 120,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_c_3000px.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_c_thumbnail.jpeg",
+                        width: 120,
+                        height: 120
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_097_3000px.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_097_thumbnail.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 180,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_097_3000px.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_097_thumbnail.jpeg",
+                        width: 120,
+                        height: 180
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_123_3000px.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_123_thumbnail.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 177,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_123_3000px.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_123_thumbnail.jpeg",
+                        width: 120,
+                        height: 177
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_192_3000px.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_192_thumbnail.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 180,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-photos/21002_d_192_3000px.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/missed-opportunities-thumbnails/21002_d_192_thumbnail.jpeg",
+                        width: 120,
+                        height: 180
 
                 }
         ],
         messed_up:
         [
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0096_star.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0096_star_thumb.jpeg",
-                        thumbnailWidth: 180,
-                        thumbnailHeight: 120,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0096_star.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0096_star_thumb.jpeg",
+                        width: 180,
+                        height: 120
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_plant.png",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_plant_thumb.png",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 160,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_plant.png",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_plant_thumb.png",
+                        width: 120,
+                        height: 160
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0109_star.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0109_star_thumb.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 147,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0109_star.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0109_star_thumb.jpeg",
+                        width: 120,
+                        height: 147
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0111_star.jpg",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0111_star_thumb.jpeg",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 161,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_0111_star.jpg",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_0111_star_thumb.jpeg",
+                        width: 120,
+                        height: 161
 
                 },
                 {
-                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_snack.png",
-                        thumbnail: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_snack_thumb.png",
-                        thumbnailWidth: 120,
-                        thumbnailHeight: 160,
-                        customOverlay: Overlay
+                        original: "https://bucket-of-chum.s3.amazonaws.com/messed-up-photos/messedup_snack.png",
+                        src: "https://bucket-of-chum.s3.amazonaws.com/messed-up-thumbnails/messedup_snack_thumb.png",
+                        width: 120,
+                        height: 160
 
                 },
         ]
