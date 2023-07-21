@@ -19,9 +19,7 @@ const Cart = () => {
     }
 
     const lineItems = checkout.lineItems.map((item, idx) => (
-        <>
-            <LineItem key={item.id.toString()} item={item} doPadTop={idx !== 0} bottomBorder={idx !== checkout.lineItems.length - 1} />
-        </>
+        <LineItem key={item.id.toString()} item={item} doPadTop={idx !== 0} bottomBorder={idx !== checkout.lineItems.length - 1} />
     ))
 
     return (
@@ -33,7 +31,7 @@ const Cart = () => {
                 </ProductColumn>
                 <CostColumn>
                     <h2>Total</h2>
-                    <p>$ {checkout.subtotalPrice}</p>
+                    <p>$ {checkout.subtotalPrice?.amount}</p>
                     <i>Taxes and shipping calculated at checkout</i>
                     <br />
                     <PurchaseButton

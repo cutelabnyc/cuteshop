@@ -84,8 +84,6 @@ const IndexPage = () => {
     const product = query.allShopifyCollection.edges[0].node.products[0]
     const collection = query.allShopifyCollection.edges[0].node
 
-    console.log(product);
-
     return (
         <>
             <SEO title={'Welcome!'} description={product.description} />
