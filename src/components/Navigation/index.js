@@ -1,7 +1,5 @@
 import React, { useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu'
-import Dropdown from './dropdown'
 import reduce from 'lodash/reduce'
 import PropTypes from 'prop-types'
 import StoreContext from '~/context/StoreContext'
@@ -49,7 +47,6 @@ const Navigation = ({ siteTitle }) => {
             <Header siteTitle={siteTitle} />
             <CollectionWrapper>
                 <Container style={{ padding: '8px' }}>
-                    <Dropdown />
                     {allShopifyCollection.edges
                         .filter(collection => !collection.node)
                         .map((collection, key) => {

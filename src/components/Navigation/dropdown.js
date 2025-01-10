@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby' // Gatsby's Link
-// import { breakpoints } from '../../utils/styles'
-
-const breakpoints = {
-    s: '768px', // Example breakpoint for small screens
-}
+import { breakpoints } from '../../utils/styles'
 
 const DropdownContainer = styled.div`
     position: relative;
@@ -57,7 +53,7 @@ const DropdownItem = styled(Link)`
     }
 `
 
-const Dropdown = () => {
+const Dropdown = ({ productCollection }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleDropdown = () => {
@@ -67,15 +63,23 @@ const Dropdown = () => {
     const closeDropdown = () => {
         setIsOpen(false)
     }
-
     return (
         <DropdownContainer onMouseLeave={closeDropdown}>
-            <DropdownToggle onClick={toggleDropdown}>Menu</DropdownToggle>
+            <DropdownToggle onClick={toggleDropdown}>
+                &nbsp;&nbsp;{productCollection.title}&nbsp;&nbsp;
+            </DropdownToggle>
             {isOpen && (
                 <DropdownMenu>
-                    <DropdownItem to="/home">Home</DropdownItem>
-                    <DropdownItem to="/about">About</DropdownItem>
-                    <DropdownItem to="/contact">Contact</DropdownItem>
+                    {productCollection.products.map((collection, key) => {
+                        return (
+                            <DropdownItem
+                                to={`/${productCollection.handle}/${collection.handle}`}
+                                key={key}
+                            >
+                                {collection.title}
+                            </DropdownItem>
+                        )
+                    })}
                 </DropdownMenu>
             )}
         </DropdownContainer>

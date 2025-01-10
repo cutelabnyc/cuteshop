@@ -171,7 +171,7 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/menu@^2.13.0", "@atlaskit/menu@^2.13.7":
+"@atlaskit/menu@^2.13.0":
   version "2.13.7"
   resolved "https://registry.yarnpkg.com/@atlaskit/menu/-/menu-2.13.7.tgz#28633a4d6c2b2e11155024f90b462c72fd700d7d"
   integrity sha512-j6Mu02kfByWqCJig5+CWzdTWj08YHSG2Xwr3W7Oz6mwtQ1g0LT8dxMyGK1Zd+/4+E8ZCL3CQ8LXzJdg2cqxeiQ==
@@ -275,7 +275,7 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/theme@^14.0.0", "@atlaskit/theme@^14.0.3":
+"@atlaskit/theme@^14.0.0":
   version "14.0.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-14.0.3.tgz#ff741abafb57f5794897cbecc7eb366784df9ded"
   integrity sha512-ZUJzeGxX8tzjb482vZbVvsTVeKiOfs+M6Y7qoIAB9xquO03a1hbkK/j9NCGm1lU/VTAbjl0eQ2vq3J+wTE4ibQ==

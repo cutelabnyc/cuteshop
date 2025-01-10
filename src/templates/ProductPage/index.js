@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-
+import Dropdown from '../../components/Navigation/dropdown'
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
 import {
@@ -23,11 +23,10 @@ import ProductImages from '../../components/assets/product-assets'
 import { Gallery } from 'react-grid-gallery'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
-import { MenuLink } from '../../components/Navigation/styles'
 
 const ProductPage = ({ data }) => {
     const product = data.shopifyProduct
-    const collection = data.shopifyCollection
+    const collections = data.allShopifyCollection
     const isMessedUp = product.title.toLowerCase().search('messed up') >= 0
     const med = product.media
     const images = isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops
@@ -44,21 +43,13 @@ const ProductPage = ({ data }) => {
     const handleClose = () => setIndex(-1)
     const handleMovePrev = () => setIndex(prevIndex)
     const handleMoveNext = () => setIndex(nextIndex)
-
     return (
         <>
             <SEO title={product.title} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
-                    {collection.products.map((product, key) => {
-                        return (
-                            <MenuLink
-                                to={`/${collection.handle}/${product.handle}`}
-                                key={key}
-                            >
-                                {product.title}
-                            </MenuLink>
-                        )
+                    {collections.nodes.map((collection, key) => {
+                        return <Dropdown productCollection={collection} />
                     })}
                 </Container>
             </ProductWrapper>
@@ -115,7 +106,7 @@ const ProductPage = ({ data }) => {
 }
 
 export const query = graphql`
-    query ($handle: String!, $collectionHandle: String!) {
+    query ($handle: String!) {
         shopifyProduct(handle: { eq: $handle }) {
             id
             title
@@ -159,11 +150,14 @@ export const query = graphql`
                 }
             }
         }
-        shopifyCollection(handle: { eq: $collectionHandle }) {
-            handle
-            products {
+        allShopifyCollection {
+            nodes {
                 title
                 handle
+                products {
+                    title
+                    handle
+                }
             }
         }
     }
