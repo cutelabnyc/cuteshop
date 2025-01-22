@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
+import Dropdown from '~/components/Navigation/dropdown'
 import {
     Img,
     SImg,
@@ -29,9 +30,10 @@ const IndexPage = () => {
     const query = useStaticQuery(
         graphql`
             query {
-                allShopifyCollection(sort: { id: DESC }) {
+                allShopifyCollection(sort: { id: ASC }) {
                     edges {
                         node {
+                            title
                             handle
                             products {
                                 id
@@ -85,7 +87,7 @@ const IndexPage = () => {
 
     const images = ProductImages.missed_ops
     const product = query.allShopifyCollection.edges[0].node.products[0]
-    const collection = query.allShopifyCollection.edges[0].node
+    const collections = query.allShopifyCollection
 
     const [index, setIndex] = useState(-1)
 
@@ -100,20 +102,15 @@ const IndexPage = () => {
     const handleMovePrev = () => setIndex(prevIndex)
     const handleMoveNext = () => setIndex(nextIndex)
 
+    console.log(collections)
+
     return (
         <>
             <SEO title={'Welcome!'} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
-                    {collection.products.map((product, key) => {
-                        return (
-                            <MenuLink
-                                to={`${collection.handle}/${product.handle}`}
-                                key={key}
-                            >
-                                {product.title}
-                            </MenuLink>
-                        )
+                    {collections.edges.map((collection, key) => {
+                        return <Dropdown productCollection={collection.node} />
                     })}
                 </Container>
             </ProductWrapper>

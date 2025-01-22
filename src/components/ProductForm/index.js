@@ -104,34 +104,43 @@ const ProductForm = ({ product }) => {
 
     return (
         <>
-            {/* {options.map(({ id, name, values }, index) => (
-                <React.Fragment key={id}>
-                    <label htmlFor={name}>{name} </label>
-                    <select
-                        name={name}
-                        key={id}
-                        onChange={event => handleOptionChange(index, event)}
-                    >
-                        {values.map(value => (
-                            <option
-                                value={value}
-                                key={`${name}-${value}`}
-                                disabled={checkDisabled(name, value)}
-                            >
-                                {value}
-                            </option>
-                        ))}
-                    </select>
-                    <br />
-                </React.Fragment>
-            ))} */}
+            {options.map(({ id, name, values }, index) =>
+                name !== 'Title' ? (
+                    <React.Fragment key={id}>
+                        <QuantityLabel htmlFor={{ name }}> {name} </QuantityLabel>
+                        <QuantityLabel> :: </QuantityLabel>
+                        <select
+                            name={name}
+                            key={id}
+                            onChange={event => handleOptionChange(index, event)}
+                        >
+                            {values.map(value => (
+                                <option
+                                    value={value}
+                                    key={`${name}-${value}`}
+                                    disabled={checkDisabled(name, value)}
+                                >
+                                    {value}
+                                </option>
+                            ))}
+                        </select>
+                        <br />
+                    </React.Fragment>
+                ) : (
+                    <div style={{ display: 'none' }} />
+                )
+            )}
             <FlexContainer>
                 {/* <ThreeColumnGrid> */}
-                    {/* <GridLeft> */}
-                    <div><h2 style={{marginTop: "15px", marginRight: "5px"}}>{`${price}`}</h2></div>
-                    {/* </GridLeft> */}
-                    {/* <GridCenter> */}
-                    <Quantity>
+                {/* <GridLeft> */}
+                <div>
+                    <h2
+                        style={{ marginTop: '15px', marginRight: '5px' }}
+                    >{`${price}`}</h2>
+                </div>
+                {/* </GridLeft> */}
+                {/* <GridCenter> */}
+                <Quantity>
                     <QuantityLabel htmlFor="quantity">Quantity: </QuantityLabel>
                     <Input
                         type="number"
@@ -142,17 +151,17 @@ const ProductForm = ({ product }) => {
                         onChange={handleQuantityChange}
                         value={quantity}
                     />
-                    </Quantity>
-                    {/* </GridCenter> */}
-                    {/* <GridRight>  */}
-                        <AddToCart
-                            type="submit"
-                            disabled={!available || adding}
-                            onClick={handleAddToCart}
-                            >
-                            Add to Cart
-                        </AddToCart>
-                    {/* </GridRight> */}
+                </Quantity>
+                {/* </GridCenter> */}
+                {/* <GridRight>  */}
+                <AddToCart
+                    type="submit"
+                    disabled={!available || adding}
+                    onClick={handleAddToCart}
+                >
+                    Add to Cart
+                </AddToCart>
+                {/* </GridRight> */}
                 {/* </ThreeColumnGrid> */}
             </FlexContainer>
             {!available && <p>This Product is out of Stock!</p>}

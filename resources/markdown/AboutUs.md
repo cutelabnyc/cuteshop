@@ -3,10 +3,16 @@ slug: 'about-us'
 title: 'About Us'
 ---
 
-CuteLab is an electronic instrument manufacturer and community space located in Gowanus, Brooklyn. It was founded to provide free/donation based workshops to the public on digital art making, programming, and hardware design. During quarantine, we have found a new passion for making hardware and software musical instruments.
+CuteLab is an electronic instrument manufacturer, performance venue, and community space
+located in Gowanus, Brooklyn.
 
-We build our instruments to explore engineering as a creative process. Through this practice we try to make interfaces that we would use in our own musical work. We're interested in hearing new sounds, and in designing tools that approach making music in a new way.
+We build our instruments to explore engineering as a creative process. Through this
+practice we try to make interfaces that we would use in our own musical work. We're
+interested in hearing new sounds, and in designing tools that approach making music in a
+new way.
 
-Our hobbies include homotopy type theory, political organizing, and playing Splatoon 2.
+Our combined hobbies include cooking Armenian cuisine, writing commutative diagrams in
+LaTeX, and practicing the ondes martenot.
 
-We couldn't do what we do without our dear friends at [Boran](http://boranrestaurant.com/), [Lowlands](http://lowlandsbar.com/).
+We couldn't do what we do without our dear friends at
+[Boran](http://boranrestaurant.com/), [Lowlands](http://lowlandsbar.com/).

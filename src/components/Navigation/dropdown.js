@@ -65,7 +65,7 @@ const Dropdown = ({ productCollection }) => {
     }
     return (
         <DropdownContainer onMouseLeave={closeDropdown}>
-            <DropdownToggle onClick={toggleDropdown}>
+            <DropdownToggle onMouseOver={toggleDropdown}>
                 &nbsp;&nbsp;{productCollection.title}&nbsp;&nbsp;
             </DropdownToggle>
             {isOpen && (

@@ -150,7 +150,7 @@ export const query = graphql`
                 }
             }
         }
-        allShopifyCollection {
+        allShopifyCollection(sort: { id: ASC }) {
             nodes {
                 title
                 handle
