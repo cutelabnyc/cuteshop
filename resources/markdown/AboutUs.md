@@ -14,5 +14,5 @@ new way.
 Our combined hobbies include cooking Armenian cuisine, writing commutative diagrams in
 LaTeX, and practicing the ondes martenot.
 
-We couldn't do what we do without our dear friends at
-[Boran](http://boranrestaurant.com/), [Lowlands](http://lowlandsbar.com/).
+We couldn't do what we do without our dear friends at [Lowlands](http://lowlandsbar.com/)
+and [Boran](http://boranrestaurant.com/).
