@@ -2088,12 +2088,12 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.2.0.tgz#5f3d96ec6b2354ad6d8a28bf216a1d97b5426861"
   integrity sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==
 
-"@hapi/hoek@^9.0.0":
+"@hapi/hoek@^9.0.0", "@hapi/hoek@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
   integrity sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==
 
-"@hapi/topo@^5.0.0":
+"@hapi/topo@^5.0.0", "@hapi/topo@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@hapi/topo/-/topo-5.1.0.tgz#dc448e332c6c6e37a4dc02fd84ba8d44b9afb012"
   integrity sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==
@@ -2739,6 +2739,13 @@
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
   integrity sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==
+  dependencies:
+    "@hapi/hoek" "^9.0.0"
+
+"@sideway/address@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.5.tgz#4bc149a0076623ced99ca8208ba780d65a99b9d5"
+  integrity sha512-IqO/DUQHUkPeixNQ8n0JA6102hT9CmaljNTPmQ1u8MEhBo/R4Q8eKLN/vGZxuebwOroDB4cbpjheD4+/sKFK4Q==
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
@@ -4178,6 +4185,21 @@ chokidar@^3.4.2, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
+  dependencies:
+    anymatch "~3.1.2"
+    braces "~3.0.2"
+    glob-parent "~5.1.2"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.6.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+chokidar@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.6.0.tgz#197c6cc669ef2a8dc5e7b4d97ee4e092c3eb0d5b"
+  integrity sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -5708,6 +5730,13 @@ fastq@^1.15.0, fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
+fastq@^1.16.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.18.0.tgz#d631d7e25faffea81887fe5ea8c9010e1b36fee0"
+  integrity sha512-QKHXPW0hD8g4UET03SdOdunzSouc9N4AuHdsX8XNcTsuz+yYFILVNIX4l9yHABMhiEI9Db0JTTIpu0wB+Y1QQw==
+  dependencies:
+    reusify "^1.0.4"
+
 fb-watchman@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-2.0.2.tgz#e9524ee6b5c77e9e5001af0f85f3adbb8623255c"
@@ -5944,6 +5973,15 @@ fs-extra@^11.1.1:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
+fs-extra@^11.2.0:
+  version "11.3.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.3.0.tgz#0daced136bbaf65a555a326719af931adc7a314d"
+  integrity sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
 fs-extra@^9.0.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
@@ -6054,6 +6092,28 @@ gatsby-core-utils@^4.11.0:
     fs-extra "^11.1.1"
     got "^11.8.6"
     hash-wasm "^4.9.0"
+    import-from "^4.0.0"
+    lmdb "2.5.3"
+    lock "^1.1.0"
+    node-object-hash "^2.3.10"
+    proper-lockfile "^4.1.2"
+    resolve-from "^5.0.0"
+    tmp "^0.2.1"
+    xdg-basedir "^4.0.0"
+
+gatsby-core-utils@^4.15.0-next.0:
+  version "4.15.0-next.0"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-4.15.0-next.0.tgz#aaa6643049dc66984bc2c65ece9abc3ac2f33d29"
+  integrity sha512-DLy4sSplzOL3LhUHH3zZG/5pGc1LeimEKTuD+CD4JUYRFQuiMn4qL0+xzOzObCbGstGtZdhhD7cz0dpJ1rn5DQ==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    ci-info "2.0.0"
+    configstore "^5.0.1"
+    fastq "^1.15.0"
+    file-type "^16.5.4"
+    fs-extra "^11.2.0"
+    got "^11.8.6"
+    hash-wasm "^4.11.0"
     import-from "^4.0.0"
     lmdb "2.5.3"
     lock "^1.1.0"
@@ -6263,6 +6323,21 @@ gatsby-plugin-utils@^4.11.0:
     joi "^17.9.2"
     mime "^3.0.0"
 
+gatsby-plugin-utils@^4.15.0-next.0:
+  version "4.15.0-next.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-4.15.0-next.0.tgz#9245d4d8608b325b22883277918a95236fa1577e"
+  integrity sha512-A2ToxRTWOidx/IkhXuPQi75N9KntS0fxTLwi4VTrCLunPm9fOs6wMe9DFSrG97BOC+fn9U+OUFfsw5YPBgUoGQ==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    fastq "^1.16.0"
+    fs-extra "^11.2.0"
+    gatsby-core-utils "^4.15.0-next.0"
+    gatsby-sharp "^1.15.0-next.0"
+    graphql-compose "^9.0.10"
+    import-from "^4.0.0"
+    joi "^17.11.0"
+    mime "^3.0.0"
+
 gatsby-plugin-web-font-loader@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-web-font-loader/-/gatsby-plugin-web-font-loader-1.0.4.tgz#c50bdb0c1980110b3fd213a5be70feb2459514c3"
@@ -6291,7 +6366,14 @@ gatsby-sharp@^1.11.0:
   dependencies:
     sharp "^0.32.1"
 
-gatsby-source-filesystem@^5.0.0, gatsby-source-filesystem@^5.11.0:
+gatsby-sharp@^1.15.0-next.0:
+  version "1.15.0-next.0"
+  resolved "https://registry.yarnpkg.com/gatsby-sharp/-/gatsby-sharp-1.15.0-next.0.tgz#a5a0def32845c62f8debd289f30c5bd10006317e"
+  integrity sha512-lH6KXHW9zZs1AJaVbJOegVxIq8sboi8CUXq8GJV57dZr8JT1PUeMDrK1mDNqDB3jpfhklWdyE7lxhsL9VHfKCQ==
+  dependencies:
+    sharp "^0.32.6"
+
+gatsby-source-filesystem@^5.0.0:
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.11.0.tgz#59c48cf86a8578627997747f7ec377dfa99fb1a4"
   integrity sha512-42CXNzKgGvkZtqmFIIMbEJW5ZpQ5b4TQT7Rk21XsEMkoZT9QchqMG1S2VPK/LPe7LicvGv6zBziGrtn6ttch7w==
@@ -6306,17 +6388,32 @@ gatsby-source-filesystem@^5.0.0, gatsby-source-filesystem@^5.11.0:
     valid-url "^1.0.9"
     xstate "^4.37.2"
 
-gatsby-source-shopify@^8.0.0:
-  version "8.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-8.11.0.tgz#c42192dc9faba4a242737c89e3161bc1dea65e06"
-  integrity sha512-NQXr45NGxHdlkSSGo6scVqcDff+5vuzc/uAcbTaOn9vM/PkumffsMzFlKauUGAB/3fEfD3wxDtTbVRf0FUreuQ==
+gatsby-source-filesystem@^5.15.0-next.1:
+  version "5.15.0-next.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-5.15.0-next.1.tgz#9d783c9c42feec170ac891e7fec1347d9a9e0ca6"
+  integrity sha512-f1LikNRbCeANt9SvKEH9xhQKFIyET6n9gAgSrEfuVdMn0KKf/F9IUTqyuk6Z4uvuYv0y12fK1yoCv/D2jy+Rxg==
   dependencies:
     "@babel/runtime" "^7.20.13"
-    gatsby-core-utils "^4.11.0"
-    gatsby-plugin-utils "^4.11.0"
-    gatsby-source-filesystem "^5.11.0"
+    chokidar "^3.6.0"
+    file-type "^16.5.4"
+    fs-extra "^11.2.0"
+    gatsby-core-utils "^4.15.0-next.0"
+    mime "^3.0.0"
+    pretty-bytes "^5.6.0"
+    valid-url "^1.0.9"
+    xstate "^4.38.0"
+
+gatsby-source-shopify@^9.0.0-next.0:
+  version "9.0.0-next.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-shopify/-/gatsby-source-shopify-9.0.0-next.0.tgz#fce7f308c99f408295e14cb91a1a3099c700daa4"
+  integrity sha512-hWm0Y6mXKHZbGoYG7Bt6PjAGcOXqxXBr8cI018w85xKvOn4SxZElqjsDdzdkujHMoAiRfnIYr6/1KoCkqth0Cg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    gatsby-core-utils "^4.15.0-next.0"
+    gatsby-plugin-utils "^4.15.0-next.0"
+    gatsby-source-filesystem "^5.15.0-next.1"
     node-fetch "^2.6.11"
-    sharp "^0.32.1"
+    sharp "^0.32.6"
     shift-left "^0.1.5"
 
 gatsby-telemetry@^4.11.0:
@@ -6857,6 +6954,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+hash-wasm@^4.11.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/hash-wasm/-/hash-wasm-4.12.0.tgz#f9f1a9f9121e027a9acbf6db5d59452ace1ef9bb"
+  integrity sha512-+/2B2rYLb48I/evdOIhP+K/DD2ca2fgBjp6O+GBEnCDk2e4rpeXIK8GvIyRPjTezgmWn9gmKwkQjjx6BtqDHVQ==
 
 hash-wasm@^4.9.0:
   version "4.9.0"
@@ -7564,6 +7666,17 @@ jest-worker@^27.4.5, jest-worker@^27.5.1:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
+
+joi@^17.11.0:
+  version "17.13.3"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.13.3.tgz#0f5cc1169c999b30d344366d384b12d92558bcec"
+  integrity sha512-otDA4ldcIx+ZXsKHWmp0YizCweVRZG96J10b0FevjfuncLO1oX59THoAmHkNubYJ+9gWsYsp5k8v4ib6oDv1fA==
+  dependencies:
+    "@hapi/hoek" "^9.3.0"
+    "@hapi/topo" "^5.1.0"
+    "@sideway/address" "^4.1.5"
+    "@sideway/formula" "^3.0.1"
+    "@sideway/pinpoint" "^2.0.0"
 
 joi@^17.9.2:
   version "17.9.2"
@@ -10228,6 +10341,20 @@ sharp@^0.32.1:
     tar-fs "^3.0.4"
     tunnel-agent "^0.6.0"
 
+sharp@^0.32.6:
+  version "0.32.6"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.32.6.tgz#6ad30c0b7cd910df65d5f355f774aa4fce45732a"
+  integrity sha512-KyLTWwgcR9Oe4d9HwCwNM2l7+J0dUQwn/yf7S0EnTtb0eVS4RxO0eUSvxPtzT4F3SY+C4K6fqdv/DO27sJ/v/w==
+  dependencies:
+    color "^4.2.3"
+    detect-libc "^2.0.2"
+    node-addon-api "^6.1.0"
+    prebuild-install "^7.1.1"
+    semver "^7.5.4"
+    simple-get "^4.0.1"
+    tar-fs "^3.0.4"
+    tunnel-agent "^0.6.0"
+
 shebang-command@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
@@ -11612,6 +11739,11 @@ xstate@^4.37.2:
   version "4.38.2"
   resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.38.2.tgz#1b74544fc9c8c6c713ba77f81c6017e65aa89804"
   integrity sha512-Fba/DwEPDLneHT3tbJ9F3zafbQXszOlyCJyQqqdzmtlY/cwE2th462KK48yaANf98jHlP6lJvxfNtN0LFKXPQg==
+
+xstate@^4.38.0:
+  version "4.38.3"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.38.3.tgz#4e15e7ad3aa0ca1eea2010548a5379966d8f1075"
+  integrity sha512-SH7nAaaPQx57dx6qvfcIgqKRXIh4L0A1iYEqim4s1u7c9VoCgzZc+63FY90AKU4ZzOC2cfJzTnpO4zK7fCUzzw==
 
 xtend@^4.0.0:
   version "4.0.2"
