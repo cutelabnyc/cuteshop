@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { Gallery, Item } from 'react-photoswipe-gallery'
+import 'photoswipe/dist/photoswipe.css'
 
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
@@ -15,9 +17,7 @@ import {
 } from '~/utils/styles'
 import ProductImages from '../components/assets/product-assets'
 import { MenuLink } from '../components/Navigation/styles'
-import { Gallery } from 'react-grid-gallery'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css'
+import { Gallery as ReactGridGallery } from 'react-grid-gallery'
 import {
     ProductTitle,
     ProductDescription,
@@ -89,18 +89,19 @@ const IndexPage = () => {
     const product = query.allShopifyCollection.edges[0].node.products[0]
     const collections = query.allShopifyCollection
 
-    const [index, setIndex] = useState(-1)
+    // Custom click handler that opens PhotoSwipe
+    const handleClick = (index, item) => {
+        // The PhotoSwipe Item component will handle this automatically
+        // when clicked, so we don't need manual state management
+    }
 
-    const currentImage = images[index]
-    const nextIndex = (index + 1) % images.length
-    const nextImage = images[nextIndex] || currentImage
-    const prevIndex = (index + images.length - 1) % images.length
-    const prevImage = images[prevIndex] || currentImage
-
-    const handleClick = (index, item) => setIndex(index)
-    const handleClose = () => setIndex(-1)
-    const handleMovePrev = () => setIndex(prevIndex)
-    const handleMoveNext = () => setIndex(nextIndex)
+    // Transform images to ensure they have the required PhotoSwipe properties
+    const transformedImages = images.map(img => ({
+        ...img,
+        // Ensure we have the required dimensions for PhotoSwipe
+        width: img.width || 1200,
+        height: img.height || 800,
+    }))
 
     console.log(collections)
 
@@ -110,7 +111,7 @@ const IndexPage = () => {
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
                     {collections.edges.map((collection, key) => {
-                        return <Dropdown productCollection={collection.node} />
+                        return <Dropdown productCollection={collection.node} key={key} />
                     })}
                 </Container>
             </ProductWrapper>
@@ -143,29 +144,50 @@ const IndexPage = () => {
                 <ProductSeparator />
                 <GalleryContainer>
                     <Gallery
-                        images={ProductImages.missed_ops}
-                        margin={15}
-                        enableImageSelection={false}
-                        onClick={handleClick}
-                    />
+                        options={{
+                            // PhotoSwipe options
+                            showHideAnimationType: 'fade',
+                            showAnimationDuration: 300,
+                            hideAnimationDuration: 300,
+                        }}
+                    >
+                        <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                            {transformedImages.map((img, index) => (
+                                <Item
+                                    key={index}
+                                    original={img.original}
+                                    thumbnail={img.src}
+                                    width={img.width}
+                                    height={img.height}
+                                    title={img.caption}
+                                >
+                                    {({ ref, open }) => (
+                                        <img
+                                            ref={ref}
+                                            onClick={open}
+                                            src={img.src}
+                                            alt={img.caption || `Image ${index + 1}`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                cursor: 'pointer',
+                                                borderRadius: '4px',
+                                                transition: 'transform 0.2s ease',
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.target.style.transform = 'scale(1.05)'
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.target.style.transform = 'scale(1)'
+                                            }}
+                                        />
+                                    )}
+                                </Item>
+                            ))}
+                        </div>
+                    </Gallery>
                 </GalleryContainer>
             </Wrapper>
-
-            {!!currentImage && (
-                /* @ts-ignore */
-                <Lightbox
-                    mainSrc={currentImage.original}
-                    imageTitle={currentImage.caption}
-                    mainSrcThumbnail={currentImage.src}
-                    nextSrc={nextImage.original}
-                    nextSrcThumbnail={nextImage.src}
-                    prevSrc={prevImage.original}
-                    prevSrcThumbnail={prevImage.src}
-                    onCloseRequest={handleClose}
-                    onMovePrevRequest={handleMovePrev}
-                    onMoveNextRequest={handleMoveNext}
-                />
-            )}
         </>
     )
 }

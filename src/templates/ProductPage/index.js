@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
+import { Gallery, Item } from 'react-photoswipe-gallery'
+import 'photoswipe/dist/photoswipe.css'
+
 import Dropdown from '../../components/Navigation/dropdown'
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
@@ -20,9 +23,6 @@ import {
     ProductSeparator,
 } from './styles'
 import ProductImages from '../../components/assets/product-assets'
-import { Gallery } from 'react-grid-gallery'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css'
 
 const ProductPage = ({ data }) => {
     const product = data.shopifyProduct
@@ -31,25 +31,21 @@ const ProductPage = ({ data }) => {
     const med = product.media
     const images = isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops
 
-    const [index, setIndex] = useState(-1)
+    // Transform images to ensure they have the required PhotoSwipe properties
+    const transformedImages = images.map(img => ({
+        ...img,
+        // Ensure we have the required dimensions for PhotoSwipe
+        width: img.width || 1200,
+        height: img.height || 800,
+    }))
 
-    const currentImage = images[index]
-    const nextIndex = (index + 1) % images.length
-    const nextImage = images[nextIndex] || currentImage
-    const prevIndex = (index + images.length - 1) % images.length
-    const prevImage = images[prevIndex] || currentImage
-
-    const handleClick = (index, item) => setIndex(index)
-    const handleClose = () => setIndex(-1)
-    const handleMovePrev = () => setIndex(prevIndex)
-    const handleMoveNext = () => setIndex(nextIndex)
     return (
         <>
             <SEO title={product.title} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
                     {collections.nodes.map((collection, key) => {
-                        return <Dropdown productCollection={collection} />
+                        return <Dropdown productCollection={collection} key={key} />
                     })}
                 </Container>
             </ProductWrapper>
@@ -78,29 +74,50 @@ const ProductPage = ({ data }) => {
                 <ProductSeparator />
                 <GalleryContainer>
                     <Gallery
-                        images={images}
-                        margin={15}
-                        enableImageSelection={false}
-                        onClick={handleClick}
-                    />
+                        options={{
+                            // PhotoSwipe options
+                            showHideAnimationType: 'fade',
+                            showAnimationDuration: 300,
+                            hideAnimationDuration: 300,
+                        }}
+                    >
+                        <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                            {transformedImages.map((img, index) => (
+                                <Item
+                                    key={index}
+                                    original={img.original}
+                                    thumbnail={img.src}
+                                    width={img.width}
+                                    height={img.height}
+                                    title={img.caption}
+                                >
+                                    {({ ref, open }) => (
+                                        <img
+                                            ref={ref}
+                                            onClick={open}
+                                            src={img.src}
+                                            alt={img.caption || `Image ${index + 1}`}
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                                cursor: 'pointer',
+                                                borderRadius: '4px',
+                                                transition: 'transform 0.2s ease',
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.target.style.transform = 'scale(1.05)'
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.target.style.transform = 'scale(1)'
+                                            }}
+                                        />
+                                    )}
+                                </Item>
+                            ))}
+                        </div>
+                    </Gallery>
                 </GalleryContainer>
             </Wrapper>
-
-            {!!currentImage && (
-                /* @ts-ignore */
-                <Lightbox
-                    mainSrc={currentImage.original}
-                    imageTitle={currentImage.caption}
-                    mainSrcThumbnail={currentImage.src}
-                    nextSrc={nextImage.original}
-                    nextSrcThumbnail={nextImage.src}
-                    prevSrc={prevImage.original}
-                    prevSrcThumbnail={prevImage.src}
-                    onCloseRequest={handleClose}
-                    onMovePrevRequest={handleMovePrev}
-                    onMoveNextRequest={handleMoveNext}
-                />
-            )}
         </>
     )
 }
