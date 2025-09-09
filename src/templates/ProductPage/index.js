@@ -81,14 +81,14 @@ const ProductPage = ({ data }) => {
                             hideAnimationDuration: 300,
                         }}
                     >
-                        <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                        <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))' }}>
                             {transformedImages.map((img, index) => (
                                 <Item
                                     key={index}
                                     original={img.original}
                                     thumbnail={img.src}
-                                    width={img.width}
-                                    height={img.height}
+                                    width={img.width * 10}
+                                    height={img.height * 10}
                                     title={img.caption}
                                 >
                                     {({ ref, open }) => (
