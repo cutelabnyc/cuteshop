@@ -19,7 +19,8 @@ const ProductForm = ({ product }) => {
         variants: [initialVariant],
         priceRange: { minVariantPrice },
     } = product
-    const [variant, setVariant] = useState({ ...initialVariant })
+    const usedInitialVariant = variants.find(variant => variant.availableForSale) || initialVariant
+    const [variant, setVariant] = useState({ ...usedInitialVariant })
     const [quantity, setQuantity] = useState(1)
     const {
         addVariantToCart,

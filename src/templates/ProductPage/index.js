@@ -46,6 +46,8 @@ const ProductPage = ({ data }) => {
         height: img.height || 800,
     }))
 
+    const initialVariant = product.variants.find(variant => variant.availableForSale) || product.variants[0]
+
     return (
         <>
             <SEO title={product.title} description={product.description} />
@@ -68,7 +70,7 @@ const ProductPage = ({ data }) => {
                         </GridLeft>
                         <GridRight>
                             <ProductTitle>{product.title}</ProductTitle>
-                            <ProductForm product={product} />
+                            <ProductForm product={product} initialVariant={initialVariant} />
                             <ProductSeparator />
                             <ProductDescription
                                 dangerouslySetInnerHTML={{

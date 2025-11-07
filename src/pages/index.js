@@ -106,10 +106,9 @@ const IndexPage = () => {
         height: img.height || 800,
     }))
 
-    console.log(collections)
-
     return (
         <>
+            <div>hi</div>
             <SEO title={'Welcome!'} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
