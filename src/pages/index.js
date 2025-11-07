@@ -108,7 +108,6 @@ const IndexPage = () => {
 
     return (
         <>
-            <div>hi</div>
             <SEO title={'Welcome!'} description={product.description} />
             <ProductWrapper>
                 <Container style={{ padding: '8px' }}>
