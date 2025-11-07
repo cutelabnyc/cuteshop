@@ -27,9 +27,16 @@ import ProductImages from '../../components/assets/product-assets'
 const ProductPage = ({ data }) => {
     const product = data.shopifyProduct
     const collections = data.allShopifyCollection
-    const isMessedUp = product.title.toLowerCase().search('messed up') >= 0
     const med = product.media
-    const images = isMessedUp ? ProductImages.messed_up : ProductImages.missed_ops
+    let images = []
+
+    if (product.title.toLowerCase().search('mom') >= 0) {
+        images = ProductImages.mom_jeans
+    } else if (product.title.toLowerCase().search('messed up') >= 0) {
+        images = ProductImages.messed_up
+    } else {
+        images = ProductImages.missed_ops
+    }
 
     // Transform images to ensure they have the required PhotoSwipe properties
     const transformedImages = images.map(img => ({

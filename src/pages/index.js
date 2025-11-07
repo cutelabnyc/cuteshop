@@ -85,8 +85,11 @@ const IndexPage = () => {
         `
     )
 
-    const images = ProductImages.missed_ops
-    const product = query.allShopifyCollection.edges[0].node.products[0]
+    const images = ProductImages.mom_jeans
+    const product = query.allShopifyCollection.edges[0].node.products.find(
+        p => p.handle === 'mom-jeans'
+    )
+
     const collections = query.allShopifyCollection
 
     // Custom click handler that opens PhotoSwipe
