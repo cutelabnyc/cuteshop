@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { navigate } from 'gatsby';
 
 const EurorackRedirect = ({ location }) => {
-    // preserve subpath and trailing slash
-    const sub = location.pathname.replace(/^\/eurorack/, '');
-    navigate(`/modules${sub}`, { replace: true });
+    useEffect(() => {
+        if (typeof window !== 'undefined' && location) {
+            const sub = location.pathname.replace(/^\/eurorack/, '');
+            navigate(`/modules${sub}`, { replace: true });
+        }
+    }, [location]);
+
     return null;
 };
 
