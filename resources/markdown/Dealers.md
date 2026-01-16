@@ -17,7 +17,7 @@ CuteLab products are also available from these fine institutions:
 ## UK
 
 - [Thonk](https://www.thonk.co.uk)
-- [Juno](https://www.juno.co.uk/dj-equipment/synth-modules/)
+- [Juno](https://www.juno.co.uk/labels/CuteLab/)
 
 ## Canada
 
