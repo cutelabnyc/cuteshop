@@ -1,12 +1,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Gallery, Item } from 'react-photoswipe-gallery'
 import 'photoswipe/dist/photoswipe.css'
 
 import SEO from '~/components/seo'
 import Dropdown from '~/components/Navigation/dropdown'
 import { Img, Container } from '~/utils/styles'
-import ProductImages from '../components/assets/product-assets'
 import { ProductWrapper } from '../templates/ProductPage/styles'
 
 const IndexPage = () => {
@@ -22,6 +20,9 @@ const IndexPage = () => {
               title
               handle
               productType
+              collections {
+                handle
+              }
               description
               descriptionHtml
               shopifyId
@@ -66,7 +67,6 @@ const IndexPage = () => {
     }
   `)
 
-  const images = ProductImages.mom_jeans
   const product = query.allShopifyCollection.edges[0].node.products.find(
     p => p.handle === 'mom-jeans'
   )
@@ -74,19 +74,6 @@ const IndexPage = () => {
   const collections = query.allShopifyCollection
 
   // Custom click handler that opens PhotoSwipe
-  const handleClick = (index, item) => {
-    // The PhotoSwipe Item component will handle this automatically
-    // when clicked, so we don't need manual state management
-  }
-
-  // Transform images to ensure they have the required PhotoSwipe properties
-  const transformedImages = images.map(img => ({
-    ...img,
-    // Ensure we have the required dimensions for PhotoSwipe
-    width: img.width || 1200,
-    height: img.height || 800,
-  }))
-
   const allProducts = collections.edges.flatMap(edge => edge.node.products)
 
   const getProductPrice = product => {
@@ -134,7 +121,7 @@ const IndexPage = () => {
             return (
               <a
                 key={prod.id}
-                href={`/products/${prod.handle}`}
+                href={`${prod.collections[0].handle}/${prod.handle}`}
                 style={{
                   textDecoration: 'none',
                   color: 'inherit',
@@ -157,4 +144,3 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-
