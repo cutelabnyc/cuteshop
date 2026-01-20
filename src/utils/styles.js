@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/react'
 
@@ -14,7 +14,6 @@ export const GlobalStyle = props => (
   <Global
     {...props}
     styles={css`
-
       body {
         margin: 0;
       }
@@ -30,38 +29,38 @@ export const GlobalStyle = props => (
       }
 
       @font-face {
-        font-family: "PressStart2P";
-        src: url("/Press_Start_2P/PressStart2P-Regular.ttf") format("woff2");
+        font-family: 'PressStart2P';
+        src: url('/Press_Start_2P/PressStart2P-Regular.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
       @font-face {
-        font-family: "Roboto";
-        src: url("/Roboto/Roboto-Regular.ttf") format("woff2");
+        font-family: 'Roboto';
+        src: url('/Roboto/Roboto-Regular.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
       @font-face {
-        font-family: "Roboto-Thin";
-        src: url("/Roboto/Roboto-Thin.ttf") format("woff2");
+        font-family: 'Roboto-Thin';
+        src: url('/Roboto/Roboto-Thin.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
       @font-face {
-        font-family: "Alegreya-Sans";
-        src: url("/Alegreya_Sans/AlegreyaSans-Regular.ttf") format("woff2");
+        font-family: 'Alegreya-Sans';
+        src: url('/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
       @font-face {
-        font-family: "Alegreya-Sans-Thin";
-        src: url("/Alegreya_Sans/AlegreyaSans-Thin.ttf") format("woff2");
+        font-family: 'Alegreya-Sans-Thin';
+        src: url('/Alegreya_Sans/AlegreyaSans-Thin.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
       @font-face {
-        font-family: "Alegreya-Sans-Thin-Italic";
-        src: url("/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf") format("woff2");
+        font-family: 'Alegreya-Sans-Thin-Italic';
+        src: url('/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf') format('woff2');
         font-weight: regluar;
         font-style: regular;
       }
@@ -70,6 +69,14 @@ export const GlobalStyle = props => (
 )
 
 export const Img = styled(GatsbyImage)`
+  aspect-ratio: 1 / 2.5; /* square cells */
+  overflow: hidden;
+  margin: 0;
+
+  img {
+    object-fit: cover;
+  }
+
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
@@ -101,8 +108,18 @@ export const Container = styled.div`
 export const GalleryContainer = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  @media (max-width: 828px) {
-    height: 400px;
+  /* Force PhotoSwipe Item anchors to respect their parent box */
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 `
 
