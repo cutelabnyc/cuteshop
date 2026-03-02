@@ -11,7 +11,7 @@ You'll just have to come visit and find out for yourself!
 
 ## 🚲 Can I pick up modules in person?
 
-If you live in the NYC area, or in Montréal, you can pick up your orders in person. Please shoot an email to [cutelabnyc@gmail.com](mailto:cutelabnyc@gmail.com) to confirm your order and to schedule a pickup. We are très flexible.
+If you live in the NYC area you can pick up your orders in person. Please shoot an email to [cutelabnyc@gmail.com](mailto:cutelabnyc@gmail.com) to confirm your order and to schedule a pickup. We are très flexible.
 
 ## 🔁 What is CuteLab's return policy?
 
