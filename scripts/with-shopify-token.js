@@ -62,6 +62,12 @@ fetchToken()
   .then(token => {
     const env = { ...process.env }
     if (token) env.SHOPIFY_SHOP_PASSWORD = token
+    // A Gatsby dependency still loads Node's deprecated built-in punycode
+    // module. Gatsby prints the warning as "ERROR UNKNOWN", which reads like a
+    // failed build, so hide that one deprecation code.
+    env.NODE_OPTIONS = [env.NODE_OPTIONS, '--disable-warning=DEP0040']
+      .filter(Boolean)
+      .join(' ')
     const child = spawn(command, args, {
       stdio: 'inherit',
       env,
