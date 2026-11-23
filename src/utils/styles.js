@@ -30,39 +30,39 @@ export const GlobalStyle = props => (
 
       @font-face {
         font-family: 'PressStart2P';
-        src: url('/Press_Start_2P/PressStart2P-Regular.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
       @font-face {
         font-family: 'Roboto';
-        src: url('/Roboto/Roboto-Regular.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Roboto/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
       @font-face {
         font-family: 'Roboto-Thin';
-        src: url('/Roboto/Roboto-Thin.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Roboto/Roboto-Thin.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
       @font-face {
         font-family: 'Alegreya-Sans';
-        src: url('/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
       @font-face {
         font-family: 'Alegreya-Sans-Thin';
-        src: url('/Alegreya_Sans/AlegreyaSans-Thin.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Alegreya_Sans/AlegreyaSans-Thin.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
       @font-face {
         font-family: 'Alegreya-Sans-Thin-Italic';
-        src: url('/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf') format('woff2');
-        font-weight: regluar;
-        font-style: regular;
+        src: url('/Alegreya_Sans/AlegreyaSans-ThinItalic.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
       }
     `}
   />

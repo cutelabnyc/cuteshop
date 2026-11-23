@@ -40,8 +40,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
+                name: `CuteShop`,
+                short_name: `CuteShop`,
                 start_url: `/`,
                 background_color: `#663399`,
                 theme_color: `#663399`,
@@ -53,15 +53,6 @@ module.exports = {
             resolve: 'gatsby-plugin-root-import',
             options: {
                 '~': path.join(__dirname, 'src/'),
-            },
-        },
-        {
-            resolve: "gatsby-plugin-web-font-loader",
-            options: {
-                custom: {
-                    families: ["PressStart2P", "Roboto", "Alegreya-Sans"],
-                    urls: ["/utils/styles.js"],
-                },
             },
         },
     ].filter(Boolean),
