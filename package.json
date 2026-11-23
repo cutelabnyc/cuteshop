@@ -23,9 +23,7 @@
     "debounce": "^1.2.1",
     "dotenv": "^10.0.0",
     "env-cmd": "^11.0.0",
-    "gatsby": "^5.0.0",
-    "gatsby-plugin-gatsby-cloud": "^5.0.0",
-    "gatsby-plugin-google-analytics": "^5.0.0",
+    "gatsby": "^5.16.1",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-layout": "^4.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
@@ -35,7 +33,7 @@
     "gatsby-plugin-sitemap": "^6.0.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^5.0.0",
-    "gatsby-source-shopify": "^10.0.0",
+    "gatsby-source-shopify": "^10.1.0",
     "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.0.0",
     "is-truthy": "^0.0.1",
@@ -54,12 +52,12 @@
     "urql": "^2.0.2"
   },
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "node scripts/with-shopify-token.js gatsby develop",
+    "start": "node scripts/with-shopify-token.js gatsby develop",
+    "build": "node scripts/with-shopify-token.js gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "dev": "env-cmd -f .env.development gatsby develop",
+    "dev": "node scripts/with-shopify-token.js gatsby develop",
     "format": "prettier --write \"src/**/*.js\""
   }
 }

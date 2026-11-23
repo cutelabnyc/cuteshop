@@ -28,14 +28,8 @@ module.exports = {
         "gatsby-transformer-remark",
         "gatsby-transformer-sharp",
         "gatsby-plugin-sitemap",
-        "gatsby-plugin-gatsby-cloud",
         `gatsby-plugin-react-helmet`,
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
-            },
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `markdown`,
@@ -68,14 +62,6 @@ module.exports = {
                     families: ["PressStart2P", "Roboto", "Alegreya-Sans"],
                     urls: ["/utils/styles.js"],
                 },
-            },
-        },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            options: {
-                trackingId: "UA-134421805-1",
-                anonymize: true,
-                respectDNT: true,
             },
         },
     ].filter(Boolean),
